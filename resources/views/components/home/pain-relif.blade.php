@@ -24,7 +24,7 @@
                 ];
             @endphp
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 @foreach ($painPrograms as $program)
                     <x-cards.pain-program-card
                         :title="$program['title']"

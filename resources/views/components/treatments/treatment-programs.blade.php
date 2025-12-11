@@ -46,7 +46,7 @@
 
 <div x-data="{ activeFilter: 'all' }" class="space-y-8">
     <!-- Hero -->
-    <section class="bg-gradient-to-br from-white to-[var(--neutral-light)] py-16 lg:py-24">
+    <section class="bg-gradient-to-br from-white to-[var(--neutral-light)] pt-16 lg:pt-24 my-16 ">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="max-w-3xl mx-auto text-center space-y-6">
                 <span
@@ -63,7 +63,7 @@
     </section>
 
     <!-- Filters -->
-    <section class="py-12 border-b border-[var(--border)]">
+    <section class="pb-12 border-b border-[var(--border)]">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="flex flex-wrap gap-3 justify-center">
                 @foreach($filters as $filter)
@@ -83,17 +83,17 @@
             <div class="grid md:grid-cols-2 gap-8">
                 @foreach($programs as $p)
                    <x-cards.treatment-card
-    :title="$p->title"
-    :category="$p->category"
-    :duration="$p->duration"
-    :effectiveness="$p->effectiveness"
-    :description="$p->description"
-    :includes="$p->includes"
-    :image="$p->image"
-    :icon="$p->icon"
-    x-show="activeFilter === 'all' || activeFilter === '{{ $p->category }}'"
-    style="display: block;"
-/>
+                        :title="$p->title"
+                        :category="$p->category"
+                        :duration="$p->duration"
+                        :effectiveness="$p->effectiveness"
+                        :description="$p->description"
+                        :includes="$p->includes"
+                        :image="$p->image"
+                        :icon="$p->icon"
+                        x-show="activeFilter === 'all' || activeFilter === '{{ $p->category }}'"
+                        style="display: block;"
+                    />
 
                 @endforeach
             </div>

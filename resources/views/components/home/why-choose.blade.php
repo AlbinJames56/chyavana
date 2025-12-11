@@ -15,7 +15,7 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <x-cards.feature-card
                     title="Certified Practitioners"
                     description="All our healers are certified Ayurvedic doctors with extensive experience"

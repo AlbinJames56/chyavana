@@ -2,10 +2,11 @@
 @php
     $navItems = [
         ['label' => 'Treatments', 'href' => 'treatments'],
-        ['label' => 'Practitioners', 'href' => '#practitioners'],
-        ['label' => 'About', 'href' => '#about'],
-        ['label' => 'Research', 'href' => '#research'],
-        ['label' => 'Contact', 'href' => '#contact'],
+        ['label' => 'Pain Relief', 'href' => '/pain-relief'],
+        ['label' => 'Our Healers', 'href' => '/OurHealers'],
+        ['label' => 'Our Story', 'href' => '/our-story'],
+        ['label' => 'Blogs', 'href' => '/blogs'],
+        ['label' => 'Contact', 'href' => '/contact'],
     ];
 @endphp
 

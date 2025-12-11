@@ -19,7 +19,7 @@
       </div>
 
       <div>
-        <h2 class="text-4xl lg:text-5xl text-[var(--neutral-dark)] mb-6" style="font-family:var(--font-body);font-weight:700">
+        <h2 class="text-4xl lg:text-5xl text-[var(--neutral-dark)] mb-6 " style="font-family:var(--font-body);font-weight:700">
           {{ $headline }}
         </h2>
 
@@ -31,42 +31,27 @@
           @foreach($items as $item)
             <div class="flex items-start gap-4">
               <div class="w-10 h-10 rounded-full bg-[var(--primary-green)]/10 flex items-center justify-center mt-1">
-                @switch($item['icon'])
-                  @case('target')
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[var(--primary-green)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <circle cx="12" cy="12" r="8" />
-                      <circle cx="12" cy="12" r="4" />
-                    </svg>
-                    @break
-                  @case('users')
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[var(--primary-green)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                      <circle cx="9" cy="7" r="4" />
-                    </svg>
-                    @break
-                  @case('microscope')
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[var(--primary-green)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M6 18h8" />
-                      <path d="M3 22h18" />
-                      <path d="M10 2h4v6" />
-                    </svg>
-                    @break
-                  @case('check')
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[var(--primary-green)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="M9 12l2 2 4-4" />
-                    </svg>
-                    @break
-                  @default
-                    <span class="text-sm text-[var(--primary-green)]">{{ $item['icon'] }}</span>
-                @endswitch
+                @php
+                  $faMap = [
+                          'target'     => 'fa-bullseye',
+                          'users'      => 'fa-users',
+                          'microscope' => 'fa-microscope',
+                          'check'      => 'fa-check-circle',
+                      ];
+
+                      $iconClass = $faMap[$item['icon']] ?? 'fa-circle-info';
+                  @endphp
+
+                  <i class="fa-solid {{ $iconClass }} text-[var(--primary-green)] text-xl"></i>
               </div>
 
-              <p class="text-[var(--neutral-dark)] text-lg" style="font-family:var(--font-body)">{{ $item['text'] }}</p>
-            </div>
+              <p class="text-[var(--neutral-dark)] text-lg mt-2" style="font-family:var(--font-body)">
+                  {{ $item['text'] }}
+              </p>
+            </div> 
           @endforeach
         </div>
       </div>
     </div>
   </div>
-</section>
+</section> 
