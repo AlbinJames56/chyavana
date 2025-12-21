@@ -1,187 +1,221 @@
 @extends('components.layouts.app')
 
 @section('content')
+  @php
+    use Illuminate\Support\Str;
 
-@php
-  // pick a featured article (first blog) if available
-  $featured = $blogs[0] ?? null;
-  $tags = ['Ayurveda','Panchakarma','Herbs','Detox','Lifestyle','Wellness'];
-@endphp
+    // pick a featured article (first blog)
+    $featured = $blogs->first() ?? null;
 
-<!-- HERO SECTION (inline SVG pattern behind content) -->
-<section class="relative py-32 mt-12 md:mt-26 bg-white overflow-hidden">
+    // build excerpt ONLY if featured exists
+    $featuredExcerpt = '';
 
-  <!-- Background Pattern (from public folder) -->
-  <div class="absolute inset-0 opacity-40"
-       style="background-image: url('{{ asset('images/bg-1.jpg') }}');
-              background-size:cover;
-              background-repeat: no-repeat;">
-  </div>
+    if ($featured) {
+      $featuredExcerpt = trim($featured->excerpt ?? '');
 
-  <div class="container relative z-10 mx-auto px-8 md:px-14 lg:px-28 text-center">
-    <h1 class="text-5xl font-bold text-[var(--neutral-dark)] leading-tight">
-      Discover Our Blogs
-    </h1>
+      if (empty($featuredExcerpt)) {
+        $plain = strip_tags($featured->content ?? '');
+        $featuredExcerpt = Str::words($plain, 45, '...');
+      } else {
+        if (Str::length($featuredExcerpt) < 80) {
+          $plain = strip_tags($featured->content ?? '');
+          $featuredExcerpt = Str::words($featuredExcerpt . ' ' . $plain, 45, '...');
+        }
+      }
+    }
 
-    <p class="text-lg text-[var(--muted-foreground)] mt-4 max-w-2xl mx-auto">
-      Explore Ayurvedic wisdom, natural healing tips, treatment insights, and wellness knowledge from our expert healers.
-    </p>
-  </div>
-</section>
+    $tags = ['Ayurveda', 'Panchakarma', 'Herbs', 'Detox', 'Lifestyle', 'Wellness'];
+  @endphp
 
-<!-- FEATURED ARTICLE (moved right after hero) -->
-@if($featured)
-<section class="py-12 bg-[var(--neutral-light)]">
-  <div class="container mx-auto px-8 md:px-14 lg:px-28">
-    <div class="rounded-2xl overflow-hidden border border-[var(--border)] bg-white shadow-lg lg:flex lg:items-stretch">
-      <div class="lg:w-1/2 relative">
-        <img src="{{ $featured['image'] }}" alt="{{ $featured['title'] }}" loading="lazy" class="w-full h-80 lg:h-full object-cover">
-        <span class="absolute top-4 left-4 bg-[var(--primary-green)] text-white text-xs px-3 py-1 rounded-full">Featured</span>
-      </div>
 
-      <div class="p-8 lg:w-1/2 flex flex-col justify-between">
-        <div>
-          <h2 class="text-3xl font-bold text-[var(--neutral-dark)] mb-3">{{ $featured['title'] }}</h2>
-          <div class="flex items-center gap-4 text-sm text-[var(--muted-foreground)] mb-4">
-            <span class="flex items-center gap-2"><i class="fa-regular fa-user"></i> {{ $featured['author'] }}</span>
-            <span class="flex items-center gap-2"><i class="fa-regular fa-calendar"></i> {{ $featured['date'] }}</span>
+
+  <!-- HERO SECTION (inline SVG pattern behind content) -->
+  <section class="relative py-32 mt-12 md:mt-26 bg-white overflow-hidden">
+
+    <!-- Background Pattern (from public folder) -->
+    <div class="absolute inset-0 opacity-40" style="background-image: url('{{ asset('images/bg-1.jpg') }}');
+                        background-size:cover;
+                        background-repeat: no-repeat;">
+    </div>
+
+    <div class="container relative z-10 mx-auto px-8 md:px-14 lg:px-28 text-center">
+      <h1 class="text-5xl font-bold text-[var(--neutral-dark)] leading-tight">
+        Discover Our Blogs
+      </h1>
+
+      <p class="text-lg text-[var(--muted-foreground)] mt-4 max-w-2xl mx-auto">
+        Explore Ayurvedic wisdom, natural healing tips, treatment insights, and wellness knowledge from our expert
+        healers.
+      </p>
+    </div>
+  </section>
+
+  <!-- FEATURED ARTICLE (moved right after hero) -->
+  @if($featured)
+    <section class="py-12 bg-[var(--neutral-light)]">
+      <div class="container mx-auto px-8 md:px-14 lg:px-28">
+        <div class="rounded-2xl overflow-hidden border border-[var(--border)] bg-white shadow-lg lg:flex lg:items-stretch">
+
+          <div class="lg:w-1/2 relative">
+            <img src="{{ $featured->image_url ?? asset('images/default-blog.jpg') }}" alt="{{ $featured->title }}"
+              class="w-full h-80 lg:h-full object-cover">
+            <span class="absolute top-4 left-4 bg-[var(--primary-green)] text-white text-xs px-3 py-1 rounded-full">
+              Featured
+            </span>
           </div>
 
-          <p class="text-[var(--muted-foreground)] leading-relaxed mb-6">
-            {{ $featured['excerpt'] }}
-          </p>
+          <div class="p-8 lg:w-1/2 flex flex-col justify-between">
+            <div>
+              <h2 class="text-3xl font-bold text-[var(--neutral-dark)] mb-3">
+                {{ $featured->title }}
+              </h2>
 
-          <div class="flex gap-3 flex-wrap">
-            <a href="{{ route('blogs.show', $featured['slug']) }}" class="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-[var(--primary-green)] text-white shadow">
-              Read Full Article <i class="fa-solid fa-arrow-right"></i>
-            </a>
+              <div class="flex items-center gap-4 text-sm text-[var(--muted-foreground)] mb-4">
+                <span><i class="fa-regular fa-user"></i> {{ $featured->author }}</span>
+                <span><i class="fa-regular fa-calendar"></i>
+                  {{ optional($featured->published_at)->format('d M Y') }}
+                </span>
+              </div>
 
-            <a href="{{ route('blogs.index') }}" class="inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-[var(--border)] text-[var(--neutral-dark)]">
-              View All Posts
-            </a>
+              {{-- ✅ THIS WILL NOW SHOW --}}
+              <p class="text-[var(--muted-foreground)] leading-relaxed mb-6 min-h-[6rem]">
+                {{ $featuredExcerpt }}
+              </p>
+
+              <a href="{{ route('blogs.show', $featured->slug) }}"
+                class="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-[var(--primary-green)] text-white shadow">
+                Read Full Article <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-2">
+              <span class="tag">Ayurveda</span>
+              <span class="tag">Wellness</span>
+            </div>
           </div>
-        </div>
 
-        <div class="mt-6 flex flex-wrap gap-2">
-          {{-- quick tag badges for featured --}}
-          <span class="text-xs px-3 py-1 rounded-full bg-[var(--primary-green)]/10 text-[var(--primary-green)] border border-[var(--primary-green)]/10">Ayurveda</span>
-          <span class="text-xs px-3 py-1 rounded-full bg-[var(--primary-green)]/10 text-[var(--primary-green)] border border-[var(--primary-green)]/10">Wellness</span>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-@endif
+    </section>
+  @endif
 
-<!-- SEARCH + FILTERS -->
-<section class="py-8 bg-white border-b border-[var(--border)]">
-  <div class="container mx-auto px-8 md:px-14 lg:px-28">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
 
-      <!-- Search -->
-      <div class="w-full md:w-2/3">
-        <input type="text"
-          class="w-full border border-[var(--border)] bg-white rounded-xl px-5 py-3 focus:ring-2 focus:ring-[var(--primary-green)] outline-none"
-          placeholder="Search blog topics, Ayurveda, wellness tips...">
-      </div>
+  <!-- SEARCH + FILTERS -->
+  <section class="py-8 bg-white border-b border-[var(--border)]">
+    <div class="container mx-auto px-8 md:px-14 lg:px-28">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
 
-      <!-- Filters -->
-      <div class="flex gap-3">
-        @foreach(['All', 'Ayurveda', 'Treatments', 'Wellness'] as $cat)
-        <button class="px-4 py-2 bg-white border border-[var(--border)] rounded-xl text-sm hover:bg-[var(--primary-green)] hover:text-white transition duration-200">
-          {{ $cat }}
-        </button>
-        @endforeach
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- BLOG CARDS -->
-<section class="py-16 bg-[var(--neutral-light)]">
-  <div class="container mx-auto px-8 md:px-14 lg:px-28">
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-      @foreach($blogs as $blog)
-      <a href="{{ route('blogs.show', $blog['slug']) }}"
-         class="bg-white rounded-2xl shadow-md border border-[var(--border)] overflow-hidden group hover:-translate-y-3 hover:shadow-2xl transition duration-300">
-
-        <div class="relative overflow-hidden">
-          <img src="{{ $blog['image'] }}" alt="{{ $blog['title'] }}" loading="lazy" class="w-full h-56 object-cover group-hover:scale-110 transition duration-700">
-          <span class="absolute top-4 left-4 bg-[var(--primary-green)] text-white text-xs px-3 py-1 rounded-full">Ayurveda</span>
+        <!-- Search -->
+        <div class="w-full md:w-2/3">
+          <input type="text"
+            class="w-full border border-[var(--border)] bg-white rounded-xl px-5 py-3 focus:ring-2 focus:ring-[var(--primary-green)] outline-none"
+            placeholder="Search blog topics, Ayurveda, wellness tips...">
         </div>
 
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-[var(--neutral-dark)] group-hover:text-[var(--primary-green)] transition">{{ $blog['title'] }}</h3>
-
-          <p class="text-[var(--muted-foreground)] text-sm mt-3 leading-relaxed">{{ $blog['excerpt'] }}</p>
-
-          <div class="flex justify-between items-center mt-4 text-sm text-gray-500">
-            <span class="flex items-center gap-2"><i class="fa-regular fa-user"></i> {{ $blog['author'] }}</span>
-            <span class="flex items-center gap-2"><i class="fa-regular fa-calendar"></i> {{ $blog['date'] }}</span>
-          </div>
-        </div>
-      </a>
-      @endforeach
-    </div>
-
-    <!-- Pagination placeholder -->
-    <div class="flex justify-center mt-12">
-      <nav class="flex gap-3">
-        <button class="px-4 py-2 bg-white border border-[var(--border)] rounded-xl hover:bg-[var(--primary-green)] hover:text-white transition">Prev</button>
-        <button class="px-4 py-2 bg-[var(--primary-green)] text-white rounded-xl">1</button>
-        <button class="px-4 py-2 bg-white border border-[var(--border)] rounded-xl hover:bg-[var(--primary-green)] hover:text-white transition">2</button>
-        <button class="px-4 py-2 bg-white border border-[var(--border)] rounded-xl hover:bg-[var(--primary-green)] hover:text-white transition">Next</button>
-      </nav>
-    </div>
-
-  </div>
-</section>
-
-<!-- TAGS, NEWSLETTER & CTA (compact, aligned with container) -->
-<section class="py-16 bg-white">
-  <div class="container mx-auto px-8 md:px-14 lg:px-28">
-    <div class="grid md:grid-cols-3 gap-6">
-
-      <!-- Tags -->
-      <div class="rounded-2xl border border-[var(--border)] p-6 bg-[var(--neutral-light)]">
-        <h4 class="text-lg font-semibold text-[var(--neutral-dark)] mb-4">Popular Tags</h4>
-        <div class="flex flex-wrap gap-3">
-          @foreach($tags as $t)
-            <a href="#" class="text-sm px-3 py-1 rounded-full border border-[var(--border)] bg-white hover:bg-[var(--primary-green)] hover:text-white transition">
-              {{ $t }}
-            </a>
+        <!-- Filters -->
+        <div class="flex gap-3">
+          @foreach(['All', 'Ayurveda', 'Treatments', 'Wellness'] as $cat)
+            <button
+              class="px-4 py-2 bg-white border border-[var(--border)] rounded-xl text-sm hover:bg-[var(--primary-green)] hover:text-white transition duration-200">
+              {{ $cat }}
+            </button>
           @endforeach
         </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG CARDS -->
+  <section class="py-16 bg-[var(--neutral-light)]">
+    <div class="container mx-auto px-8 md:px-14 lg:px-28">
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        @foreach($blogs as $blog)
+          <a href="{{ route('blogs.show', $blog->slug) }}" class="...">
+            <div class="relative overflow-hidden">
+              <img src="{{ $blog->image_url }}" alt="{{ $blog->title }}" loading="lazy" class="w-full h-56 object-cover">
+              <span
+                class="absolute top-4 left-4 bg-[var(--primary-green)] text-white text-xs px-3 py-1 rounded-full">Ayurveda</span>
+            </div>
+
+            <div class="p-6">
+              <h3 class="text-xl font-semibold ...">{{ $blog->title }}</h3>
+              <p class="text-[var(--muted-foreground)] text-sm mt-3 leading-relaxed">{{ $blog->excerpt }}</p>
+
+              <div class="flex justify-between items-center mt-4 text-sm text-gray-500">
+                <span class="flex items-center gap-2"><i class="fa-regular fa-user"></i> {{ $blog->author }}</span>
+                <span class="flex items-center gap-2"><i class="fa-regular fa-calendar"></i>
+                  {{ $blog->published_at?->format('d M Y') }}</span>
+              </div>
+            </div>
+          </a>
+        @endforeach
+
       </div>
 
-      <!-- Newsletter -->
-      <div class="rounded-2xl border border-[var(--border)] p-6">
-        <h4 class="text-lg font-semibold text-[var(--neutral-dark)] mb-3">Subscribe</h4>
-        <p class="text-sm text-[var(--muted-foreground)] mb-4">Get weekly Ayurvedic tips & featured articles in your inbox.</p>
-
-        <form action="#" method="POST" class="flex gap-2">
-          <input type="email" name="email" placeholder="Your email address"
-                 class="flex-1 border border-[var(--border)] rounded-lg px-4 py-2 focus:ring-2 focus:ring-[var(--primary-green)] outline-none"
-                 required>
-          <button type="submit" class="px-4 py-2 rounded-lg bg-[var(--primary-green)] text-white">Subscribe</button>
-        </form>
-
-        <p class="text-xs text-[var(--muted-foreground)] mt-3">We respect your privacy. Unsubscribe anytime.</p>
-      </div>
-
-      <!-- Quick CTA -->
-      <div class="rounded-2xl border border-[var(--border)] p-6 text-center bg-white">
-        <h4 class="text-lg font-semibold text-[var(--neutral-dark)] mb-3">Book a Consultation</h4>
-        <p class="text-sm text-[var(--muted-foreground)] mb-4">Personalized guidance from our expert healers.</p>
-        <a href="/contact" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--primary-green)] text-white">
-          Book Now <i class="fa-solid fa-calendar-check"></i>
-        </a>
+      <!-- Pagination placeholder -->
+      <div class="flex justify-center mt-12">
+        <nav class="flex gap-3">
+          <button
+            class="px-4 py-2 bg-white border border-[var(--border)] rounded-xl hover:bg-[var(--primary-green)] hover:text-white transition">Prev</button>
+          <button class="px-4 py-2 bg-[var(--primary-green)] text-white rounded-xl">1</button>
+          <button
+            class="px-4 py-2 bg-white border border-[var(--border)] rounded-xl hover:bg-[var(--primary-green)] hover:text-white transition">2</button>
+          <button
+            class="px-4 py-2 bg-white border border-[var(--border)] rounded-xl hover:bg-[var(--primary-green)] hover:text-white transition">Next</button>
+        </nav>
       </div>
 
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- TAGS, NEWSLETTER & CTA (compact, aligned with container) -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-8 md:px-14 lg:px-28">
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Tags -->
+        <!-- <div class="rounded-2xl border border-[var(--border)] p-6 bg-[var(--neutral-light)]">
+          <h4 class="text-lg font-semibold text-[var(--neutral-dark)] mb-4">Popular Tags</h4>
+          <div class="flex flex-wrap gap-3">
+            @foreach($tags as $t)
+              <a href="#"
+                class="text-sm px-3 py-1 rounded-full border border-[var(--border)] bg-white hover:bg-[var(--primary-green)] hover:text-white transition">
+                {{ $t }}
+              </a>
+            @endforeach
+          </div>
+        </div> -->
+
+        <!-- Newsletter -->
+        <div class="rounded-2xl border border-[var(--border)] p-6">
+          <h4 class="text-lg font-semibold text-[var(--neutral-dark)] mb-3">Subscribe</h4>
+          <p class="text-sm text-[var(--muted-foreground)] mb-4">Get weekly Ayurvedic tips & featured articles in your
+            inbox.</p>
+
+          <form action="#" method="POST" class="flex gap-2">
+            <input type="email" name="email" placeholder="Your email address"
+              class="flex-1 border border-[var(--border)] rounded-lg px-4 py-2 focus:ring-2 focus:ring-[var(--primary-green)] outline-none"
+              required>
+            <button type="submit" class="px-4 py-2 rounded-lg bg-[var(--primary-green)] text-white">Subscribe</button>
+          </form>
+
+          <p class="text-xs text-[var(--muted-foreground)] mt-3">We respect your privacy. Unsubscribe anytime.</p>
+        </div>
+
+        <!-- Quick CTA -->
+        <div class="rounded-2xl border border-[var(--border)] p-6 text-center bg-white">
+          <h4 class="text-lg font-semibold text-[var(--neutral-dark)] mb-3">Book a Consultation</h4>
+          <p class="text-sm text-[var(--muted-foreground)] mb-4">Personalized guidance from our expert healers.</p>
+          <a href="/contact"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--primary-green)] text-white">
+            Book Now <i class="fa-solid fa-calendar-check"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
 @endsection

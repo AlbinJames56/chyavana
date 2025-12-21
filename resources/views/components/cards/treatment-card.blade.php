@@ -7,6 +7,7 @@
     'duration' => '',
     'effectiveness' => '',
     'category' => '',
+    'url' => null, 
 ])
 
 <div {{ $attributes->merge([
@@ -19,9 +20,12 @@
 
     {{-- Image Section --}}
     <div class="relative h-56 overflow-hidden">
-        <img src="{{ $image }}"
-             alt="{{ $title }}"
-             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+       <img
+            src="{{ $image ?: asset('images/placeholder.jpg') }}"
+            alt="{{ $title }}"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+
 
         {{-- Floating Category Badge --}}
         <span class="absolute top-4 left-4 px-4 py-1.5 text-xs rounded-full 
@@ -71,26 +75,57 @@
         </p>
 
         {{-- Includes --}}
-        @if(!empty($includes))
+            {{-- Includes --}}
+        @php
+            // Normalize $includes into an array of strings
+            $includesList = collect($includes ?? [])->map(function($it) {
+                // already a string
+                if (is_string($it)) {
+                    return $it;
+                }
+
+                // array with "value" key (Repeater saved)
+                if (is_array($it) && array_key_exists('value', $it)) {
+                    return (string) $it['value'];
+                }
+
+                // object with property 'value'
+                if (is_object($it) && isset($it->value)) {
+                    return (string) $it->value;
+                }
+
+                // scalar values (int/float/bool)
+                if (is_scalar($it)) {
+                    return (string) $it;
+                }
+
+                // fallback: JSON-encode complex types
+                return json_encode($it);
+            })->filter()->values()->all();
+        @endphp
+
+        @if(!empty($includesList))
             <ul class="mt-2 space-y-1.5">
-                @foreach($includes as $item)
+                @foreach($includesList as $inc)
                     <li class="text-sm flex items-center gap-2 text-[var(--neutral-dark)]/80">
                         <span class="w-1.5 h-1.5 rounded-full bg-[var(--primary-green)]"></span>
-                        {{ $item }}
+                        {{ $inc }}
                     </li>
                 @endforeach
             </ul>
         @endif
 
-        {{-- CTA Button --}}
+
+                {{-- CTA Button --}}
+                {{-- CTA Button --}}
         <div class="pt-4">
-            <button
-                class="w-full py-3 rounded-xl bg-[var(--primary-green)] text-white 
-                       font-semibold shadow-lg hover:shadow-xl hover:bg-[var(--primary-green)]/90 
-                       transition-all"
-                style="font-family: var(--font-body)">
+            <a href="{{ $url ?? '#' }}"
+            class="w-full inline-flex justify-center py-3 rounded-xl bg-[var(--primary-green)] text-white 
+                    font-semibold shadow-lg hover:shadow-xl hover:bg-[var(--primary-green)]/90 
+                    transition-all"
+            style="font-family: var(--font-body)">
                 Explore Program →
-            </button>
-        </div>
+            </a>
+        </div> 
     </div>
 </div>

@@ -38,7 +38,7 @@
 
 {{-- Healers Grid --}}
 <section class="py-20">
-    <div class="container mx-auto px-8 md:px-14 lg:px-28 grid md:grid-cols-2 gap-10">
+    <div class="container mx-auto px-8 md:px-14 lg:px-28 grid lg:grid-cols-2 gap-10">
 
         @foreach($healers as $healer)
             <x-healers.card :healer="$healer" />
@@ -67,8 +67,7 @@
             <x-healers.why-card icon="fa-solid fa-book-open" title="Continuous Learning">
                 We stay updated with the latest Ayurvedic research…
             </x-healers.why-card>
-        </div>
-
+        </div> 
     </div>
 </section>
 

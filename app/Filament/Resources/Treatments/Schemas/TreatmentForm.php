@@ -51,7 +51,7 @@ class TreatmentForm
                                                 'published' => 'Published',
                                                 'draft' => 'Draft',
                                             ])
-                                            ->default('draft')
+                                            ->default('published')
                                             ->required(),
                                         TextInput::make('sort_order')->numeric(),
                                     ])
@@ -82,7 +82,11 @@ class TreatmentForm
                             ]),
                         Tabs\Tab::make('Media')
                             ->schema([
-                                FileUpload::make('image')->directory('treatments')->image(),
+                                FileUpload::make('image')
+                                    ->disk('public')
+                                    ->directory('treatments')
+                                    ->image()
+                                    ->visibility('public'),
                                 TextInput::make('image_alt')->label('Image alt text')
                             ]),
                         Tabs\Tab::make('SEO')

@@ -60,8 +60,9 @@ class Treatment extends Model
 
     public function getImageUrlAttribute(): ?string
     {
-        if (!$this->image)
+        if (!$this->image) {
             return null;
+        }
 
         if (Str::startsWith($this->image, ['http://', 'https://'])) {
             return $this->image;

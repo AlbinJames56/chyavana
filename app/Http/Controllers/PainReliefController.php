@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PainTechnique;
 use Illuminate\Http\Request;
 
 class PainReliefController extends Controller
@@ -88,7 +89,28 @@ class PainReliefController extends Controller
                 'quote' => 'My migraine frequency reduced from weekly to once a month. The Shirodhara therapy was truly transformative.',
             ],
         ];
+        $techniques = PainTechnique::query()
+            ->where('available', true)     // updated field
+            ->orderBy('featured', 'desc')  // featured items first
+            ->orderBy('title', 'asc')      // alphabetical fallback
+            ->get();
 
-        return view('pages.PainRelief', compact('conditions', 'testimonials'));
+        return view('pages.PainRelief', compact('conditions', 'testimonials', 'techniques'));
+    }
+    public function show($slug)
+    {
+        $technique = PainTechnique::where('slug', $slug)
+            ->where('available', true)
+            ->firstOrFail();
+
+        // related techniques (exclude current)
+        $related = PainTechnique::where('available', true)
+            ->where('id', '!=', $technique->id)
+            ->orderBy('featured', 'desc')
+            ->inRandomOrder()
+            ->take(4)
+            ->get();
+
+        return view('pages.pain-techniques.show', compact('technique', 'related'));
     }
 }
