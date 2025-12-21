@@ -1,12 +1,14 @@
 {{-- resources/views/components/header.blade.php --}}
 @php
-    $navItems = [
-        ['label' => 'Treatments', 'href' => 'treatments'],
-        ['label' => 'Practitioners', 'href' => '#practitioners'],
-        ['label' => 'About', 'href' => '#about'],
-        ['label' => 'Research', 'href' => '#research'],
-        ['label' => 'Contact', 'href' => '#contact'],
-    ];
+$navItems = [
+    ['label' => 'Home', 'href' => ' '],
+    ['label' => 'Treatments', 'href' => 'treatments'],
+    ['label' => 'Pain Relief', 'href' => '/pain-relief'],
+    ['label' => 'Our Healers', 'href' => '/OurHealers'],
+    ['label' => 'Our Story', 'href' => '/our-story'],
+    ['label' => 'Blogs', 'href' => '/blogs'],
+    ['label' => 'Contact', 'href' => '/contact'],
+];
 @endphp
 
 <header
@@ -28,7 +30,7 @@
             <div
                 class="flex items-center gap-3 cursor-pointer transform transition-transform duration-200 hover:scale-[1.02]"
             >
-                <div
+                <a href="/"
                     class="h-14 px-4  s  flex items-center justify-center   "
                 >
                     <img
@@ -36,7 +38,7 @@
                         alt="Chyavana Ayurveda Hospital"
                         class="h-10 w-auto object-contain"
                     />
-                </div>
+                </a>
             </div>
 
             {{-- Desktop Navigation --}}
@@ -73,8 +75,9 @@
                     Call Us
                 </a>
 
-                <a
-                    href="#book"
+               <button
+    type="button"
+    onclick="window.dispatchEvent(new CustomEvent('open-booking'))"
                     class="inline-flex items-center px-4 py-2 text-sm rounded-full bg-[var(--primary-deep)] hover:bg-[var(--primary-sage)] text-black shadow-md shadow-[var(--primary-deep)]/20"
                     style="font-family: var(--font-accent)"
                 >
@@ -88,14 +91,13 @@
                         <line x1="3" y1="10" x2="21" y2="10"></line>
                     </svg>
                     Book Consultation
-                </a>
+                </button>
             </div>
 
             {{-- MOBILE: Book button + Hamburger --}}
             <div class="flex items-center gap-2 lg:hidden">
                 {{-- Small Book button on mobile --}}
-                <a
-                    href="#book"
+                <button type="button" data-booking
                     class="inline-flex items-center px-3 py-1.5 text-xs rounded-full bg-[var(--primary-deep)] hover:bg-[var(--primary-sage)] text-black shadow-sm"
                     style="font-family: var(--font-accent)"
                 >
@@ -108,7 +110,7 @@
                         <line x1="3" y1="10" x2="21" y2="10"></line>
                     </svg>
                     Book
-                </a>
+                </button>
 
                 {{-- Mobile Menu Button --}}
                 <button
@@ -183,8 +185,9 @@
                         Call Us
                     </a>
 
-                    <a
-                        href="#book"
+               <button
+    type="button"
+    onclick="window.dispatchEvent(new CustomEvent('open-booking'))"
                         class="inline-flex items-center justify-center px-4 py-2 rounded-full w-full text-white bg-[var(--primary-deep)] hover:bg-[var(--primary-sage)] shadow-md"
                         style="font-family: var(--font-accent)"
                         @click="isMobileMenuOpen = false"
@@ -199,7 +202,7 @@
                             <line x1="3" y1="10" x2="21" y2="10"></line>
                         </svg>
                         Book Consultation
-                    </a>
+                    </button>
                 </div>
             </nav>
         </div>

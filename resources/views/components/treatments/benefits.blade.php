@@ -22,26 +22,21 @@
         <div class="border-white/20 bg-white/10 backdrop-blur-sm text-center rounded-2xl overflow-hidden">
           <div class="p-8 space-y-4">
             <div class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto">
-              @switch($b['icon'])
-                @case('leaf')
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 11.5a8.38 8.38 0 0 0-2.5-5.5 8.38 8.38 0 0 0-5.5-2.5A8.38 8.38 0 0 0 7 4a8.38 8.38 0 0 0-2.5 5.5A8.38 8.38 0 0 0 7 15.5" />
-                  </svg>
-                  @break
-                @case('users')
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                  </svg>
-                  @break
-                @case('heart')
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8L12 22.5l8.8-9.1a5.5 5.5 0 0 0 0-8.8z" />
-                  </svg>
-                  @break
-                @default
-                  <span class="text-white">{{ $b['icon'] }}</span>
-              @endswitch
+              @php
+                // map your friendly keys to Font Awesome icon classes
+                $faMap = [
+                  'leaf'  => 'fa-leaf',
+                  'users' => 'fa-users',
+                  'heart' => 'fa-heart',
+                ];
+
+                $key = strtolower($b['icon'] ?? '');
+                $iconClass = $faMap[$key] ?? 'fa-circle-info';
+              @endphp
+
+              {{-- Use 'fa-solid' for Font Awesome 6+; change prefix if needed --}}
+              <i class="fa-solid {{ $iconClass }} text-white text-2xl" aria-hidden="true"></i>
+              <span class="sr-only">{{ $b['title'] }} icon</span>
             </div>
 
             <h3 class="text-xl text-white" style="font-family:var(--font-body);font-weight:600">{{ $b['title'] }}</h3>

@@ -95,7 +95,7 @@
 </head>
 
 <body class="antialiased bg-gray-50 text-gray-900">
-
+    @include('components.floating-booking')
     @include('components.commons.header')
 
     <main class="min-h-screen">
@@ -105,17 +105,53 @@
 
     @include('components.commons.footer')
 
-    {{-- Floating Elements: include WhatsApp + booking after footer so they're not inside transformed containers --}}
-    <!-- @includeWhen(view()->exists('components.whatsapp-float'), 'components.whatsapp-float')
-    @includeWhen(view()->exists('components.floating-booking'), 'components.floating-booking')
-    @includeWhen(view()->exists('components.floating-contact'), 'components.floating-contact') -->
+    <script>
+        /*
+         * Booking shim: ensures window.openBookingModal exists immediately,
+         * queues calls until the Alpine modal registers its listener.
+         */
+        window._pendingBookingEvents = window._pendingBookingEvents || [];
+
+        window.openBookingModal = function (detail = {}) {
+            // If the modal has already marked itself ready, dispatch immediately.
+            if (window.__bookingListenerReady) {
+                window.dispatchEvent(new CustomEvent('open-booking', { detail }));
+                return;
+            }
+            // Otherwise queue for the modal to flush later.
+            window._pendingBookingEvents.push(detail);
+        };
+
+        // Global click-catcher so any element using data-booking works immediately
+        document.addEventListener('click', function (ev) {
+            try {
+                if (ev && ev.isTrusted === false) return;
+                var el = ev.target.closest && ev.target.closest('[data-booking], .open-booking');
+                if (!el) return;
+                ev.preventDefault();
+
+                var detail = {};
+                var t = el.getAttribute('data-treatment') || el.dataset.treatment;
+                var src = el.getAttribute('data-source') || el.dataset.source;
+                if (t) detail.treatment = t;
+                if (src) detail.source = src;
+                var prefill = {};
+                if (el.dataset.name) prefill.name = el.dataset.name;
+                if (el.dataset.email) prefill.email = el.dataset.email;
+                if (Object.keys(prefill).length) detail.prefill = prefill;
+
+                // Use the shim - it will queue if modal not ready
+                window.openBookingModal(detail);
+            } catch (e) { console.debug('booking global click-catcher error', e); }
+        }, { passive: false });
+    </script>
 
     {{-- AOS JS --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
         // Simple AOS initialization
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             AOS.init({
                 duration: 800,
                 easing: 'ease-in-out',
