@@ -7,10 +7,10 @@
 
     {{-- Content --}}
     <div class="relative container mx-auto px-4 lg:px-8 h-full flex items-center">
-        <div class="max-w-2xl ">
+        <div class="max-w-2xl pt-6 ">
 
             {{-- Eyebrow --}}
-            <span class="mt-6 inline-flex items-center px-4 py-1.5 rounded-full
+            <span class=" inline-flex items-center px-4 py-1.5 rounded-full
                        bg-[var(--primary-green)]/10
                        text-[var(--primary-green)]
                        border border-[var(--primary-green)]/20

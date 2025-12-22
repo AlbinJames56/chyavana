@@ -1,7 +1,7 @@
 <section id="stats" class="py-20 bg-white">
         <div class="container mx-auto px-4 lg:px-8">
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                <x-cards.stat-card value="10,000+" label="Patients Healed">
+            <div class="grid  grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <x-cards.stat-card value="5,000+" label="Patients Healed">
                     <x-slot:icon>
                         {{-- Users --}}
                         <svg class="w-14 h-14 text-[var (--primary-green)] mx-auto"

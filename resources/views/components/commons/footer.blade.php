@@ -132,9 +132,11 @@ $contactInfo = [
         </div>
 
         <div class="relative z-10">
-          <div class="mb-8 transform transition-transform duration-500 hover:scale-[1.02]">
-            <img src="/images/logo-title.png" alt="Chyavana Ayur Retreat"
-              class="w-54 mb-6 drop-shadow-lg filter brightness-110 contrast-110">
+          <div class="mb-8 transform transition-transform duration-500 hover:scale-[1.02]  ">
+          <img src="/images/logo-title.png" alt="Chyavana Ayur Retreat" class="w-54 mb-6 drop-shadow-lg filter brightness-110 contrast-110
+                   mx-auto lg:mx-0
+                   block" />
+
           </div>
 
           <p
@@ -203,10 +205,8 @@ $contactInfo = [
               @endforeach
             </div>
           </div>
-
-          <!-- Quick Links & Partner Section -->
-          <div class="space-y-8">
-            <!-- Quick Links -->
+ 
+          <div class="space-y-8"> 
             
 
             <!-- Partner Badge with unique design -->

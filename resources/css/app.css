@@ -119,3 +119,10 @@
 .swiper-button-prev::after {
     display: none !important;
 }
+/* Hide swiper arrows on small screens */
+@media (max-width: 640px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+  }
+}
