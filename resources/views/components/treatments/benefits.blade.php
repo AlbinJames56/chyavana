@@ -11,7 +11,7 @@
 <section class="py-20 bg-gradient-to-br from-[var(--primary-green)] to-[var(--primary-green)]/80 text-white">
   <div class="container mx-auto px-4 lg:px-8">
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 class="text-4xl lg:text-5xl mb-4" style="font-family:var(--font-body);font-weight:700">
+      <h2 class="text-4xl lg:text-5xl mb-4 text-white" style="font-family:var(--font-body);font-weight:700">
         {{ $headline }}
       </h2>
       <p class="text-lg text-white/90" style="font-family:var(--font-body)">{{ $subtext }}</p>

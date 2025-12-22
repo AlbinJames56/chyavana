@@ -37,11 +37,15 @@
     @endphp
 
     <!-- Overlay -->
-    <div x-show="open" x-transition.opacity class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
-        @click="open = false; document.body.classList.remove('overflow-hidden')"></div>
+    <div x-show="open"
+     class="fixed inset-0 z-[80] bg-black/50"
+     @click="open = false; document.body.classList.remove('overflow-hidden')">
+</div>
 
     <!-- Modal -->
-    <div x-show="open" x-transition class="fixed inset-0 z-50 flex items-center justify-center px-4 ">
+   <div x-show="open"
+     x-transition
+     class="fixed inset-0 z-[100] flex items-center justify-center px-4">
         <div @click.stop class="bg-white w-full max-w-2xl rounded-2xl shadow-xl p-6 relative mt-6">
             <!-- Close -->
             <button class="absolute top-4 right-4 text-gray-500 hover:text-black"

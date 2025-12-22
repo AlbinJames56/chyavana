@@ -81,9 +81,9 @@
         Choose a healer that resonates with your needs…
     </p>
 
-    <a href="/contact" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg text-lg">
+    <button type="button" onclick="window.dispatchEvent(new CustomEvent('open-booking'))"  class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg text-lg">
         Book Consultation <i class="fa-solid fa-arrow-right ml-2"></i>
-    </a>
+</button>
 </section>
 
 @endsection

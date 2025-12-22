@@ -248,7 +248,7 @@
                         </dl>
 
                         <div class="mt-4">
-                            <a href="{{ route('Get Started') }}" class="block text-center px-4 py-3 rounded-md bg-[var(--primary-green)] text-white font-semibold">Book Consultation</a>
+                           <button type="button" onclick="window.dispatchEvent(new CustomEvent('open-booking'))"class="block text-center px-4 py-3 rounded-md bg-[var(--primary-green)] text-white font-semibold">Book Consultation</button>
                         </div>
                     </div>
 

@@ -11,14 +11,14 @@
     </div>
 
     <h3
-        class="text-xl"
+        class="text-xl text-white"
         style="font-family: var(--font-body); font-weight: 600;"
     >
         {{ $title }}
     </h3>
 
     <p
-        class="text-white/90"
+        class="text-white/70"
         style="font-family: var(--font-body);"
     >
         {{ $description }}

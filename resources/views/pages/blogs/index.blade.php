@@ -34,8 +34,8 @@
 
     <!-- Background Pattern (from public folder) -->
     <div class="absolute inset-0 opacity-40" style="background-image: url('{{ asset('images/bg-1.jpg') }}');
-                        background-size:cover;
-                        background-repeat: no-repeat;">
+                            background-size:cover;
+                            background-repeat: no-repeat;">
     </div>
 
     <div class="container relative z-10 mx-auto px-8 md:px-14 lg:px-28 text-center">
@@ -172,50 +172,24 @@
 
   <!-- TAGS, NEWSLETTER & CTA (compact, aligned with container) -->
   <section class="py-16 bg-white">
-    <div class="container mx-auto px-8 md:px-14 lg:px-28">
-      <div class="grid md:grid-cols-2 gap-6">
+    <section class="py-20 bg-[var(--primary-green)] text-white text-center">
+    <div class="container mx-auto px-4 lg:px-8">
 
-        <!-- Tags -->
-        <!-- <div class="rounded-2xl border border-[var(--border)] p-6 bg-[var(--neutral-light)]">
-          <h4 class="text-lg font-semibold text-[var(--neutral-dark)] mb-4">Popular Tags</h4>
-          <div class="flex flex-wrap gap-3">
-            @foreach($tags as $t)
-              <a href="#"
-                class="text-sm px-3 py-1 rounded-full border border-[var(--border)] bg-white hover:bg-[var(--primary-green)] hover:text-white transition">
-                {{ $t }}
-              </a>
-            @endforeach
-          </div>
-        </div> -->
+        <h2 class="text-3xl lg:text-4xl mb-6 text-white">Ready to Live Pain-Free?</h2>
 
-        <!-- Newsletter -->
-        <div class="rounded-2xl border border-[var(--border)] p-6">
-          <h4 class="text-lg font-semibold text-[var(--neutral-dark)] mb-3">Subscribe</h4>
-          <p class="text-sm text-[var(--muted-foreground)] mb-4">Get weekly Ayurvedic tips & featured articles in your
-            inbox.</p>
+        <p class="text-lg text-white/60 mb-8 max-w-2xl mx-auto">
+            Take the first step toward natural, lasting pain relief. Book your consultation today.
+        </p>
 
-          <form action="#" method="POST" class="flex gap-2">
-            <input type="email" name="email" placeholder="Your email address"
-              class="flex-1 border border-[var(--border)] rounded-lg px-4 py-2 focus:ring-2 focus:ring-[var(--primary-green)] outline-none"
-              required>
-            <button type="submit" class="px-4 py-2 rounded-lg bg-[var(--primary-green)] text-white">Subscribe</button>
-          </form>
+        <button type="button" onclick="window.dispatchEvent(new CustomEvent('open-booking'))" 
+           class="bg-white text-[var(--primary-green)] px-6 py-3 rounded-lg hover:bg-white/90 inline-flex items-center gap-2">
+            Book Free Consultation
+            <i class="fa-solid fa-calendar-check"></i>
+</button>
 
-          <p class="text-xs text-[var(--muted-foreground)] mt-3">We respect your privacy. Unsubscribe anytime.</p>
-        </div>
-
-        <!-- Quick CTA -->
-        <div class="rounded-2xl border border-[var(--border)] p-6 text-center bg-white">
-          <h4 class="text-lg font-semibold text-[var(--neutral-dark)] mb-3">Book a Consultation</h4>
-          <p class="text-sm text-[var(--muted-foreground)] mb-4">Personalized guidance from our expert healers.</p>
-          <a href="/contact"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--primary-green)] text-white">
-            Book Now <i class="fa-solid fa-calendar-check"></i>
-          </a>
-        </div>
-
-      </div>
     </div>
+</section>
+
   </section>
 
 @endsection

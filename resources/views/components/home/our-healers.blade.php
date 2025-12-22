@@ -2,12 +2,11 @@
         <div class="container mx-auto px-4 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="relative">
-                    <img
-                        src="https://images.unsplash.com/photo-1659353888242-e7c29b331c61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-                        alt="Expert Ayurvedic Healers"
-                        class="w-full h-[500px] object-cover rounded-2xl shadow-xl"
-                    >
+                    <img src="{{ asset('images/getting-ready-spa.jpg') }}" alt="Expert Ayurvedic Healers"
+                        class="w-full h-[500px] object-cover rounded-2xl shadow-xl" />
+
                 </div>
+                 
                 <div>
                     <h2
                         class="text-4xl lg:text-5xl text-[var(--neutral-dark)] mb-6"
@@ -30,7 +29,7 @@
                         health goals to create personalized treatment plans that deliver lasting results.
                     </p>
                     <a
-                        href="#healers"
+                        href="OurHealers"
                         class="inline-flex items-center bg-[var(--primary-green)] hover:bg-[var(--primary-green)]/90 text-white px-6 py-3 rounded-lg"
                         style="font-family: var(--font-body);"
                     >

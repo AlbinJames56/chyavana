@@ -24,7 +24,7 @@
                         to enhance your overall wellbeing, our holistic approach addresses body, mind, and spirit.
                     </p>
                     <a
-                        href="#about"
+                        href="/our-story"
                         class="inline-flex items-center bg-[var(--primary-green)] hover:bg-[var(--primary-green)]/90 text-white px-6 py-3 rounded-lg"
                         style="font-family: var(--font-body);"
                     >
@@ -38,12 +38,10 @@
                 </div>
 
                 <div class="relative">
-                    <img
-                        src="https://images.unsplash.com/photo-1659353888242-e7c29b331c61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-                        alt="Ayurvedic Consultation"
-                        class="w-full h-[500px] object-cover rounded-2xl shadow-xl"
-                    >
+                    <img src="{{ asset('images/herbal-spa.jpg') }}" alt="Ayurvedic Consultation"
+                        class="w-full h-[500px] object-cover rounded-2xl shadow-xl">
                 </div>
+
             </div>
         </div>
     </section>

@@ -1,60 +1,65 @@
- <section id="hero" class="relative h-[600px] lg:h-[700px] overflow-hidden">
-        <div class="absolute inset-0">
-            <img
-                src="https://images.unsplash.com/photo-1536690179483-7a0f1d0efc05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-                alt="Chyavana Ayurveda Hospital Banner"
-                class="w-full h-full object-cover"
-            >
-            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
-        </div>
+<section id="hero" class="relative h-[620px] lg:h-[740px] overflow-hidden">
+    {{-- Background image --}}
+    <img src="/images/bg-4.jpg" alt="Ayurvedic healing" class="absolute inset-0 w-full h-full object-cover">
 
-        <div class="relative container mx-auto px-4 lg:px-8 h-full flex items-center">
-            <div class="max-w-2xl text-white">
-                <span
-                    class="inline-flex items-center px-3 py-1 rounded-full bg-white/20 text-white border border-white/30 mb-6 backdrop-blur-sm text-sm"
-                    style="font-family: var(--font-body);"
-                >
-                    Wellness Through Ayurveda
-                </span>
+    {{-- Soft overlay for readability --}}
+    <div class="absolute inset-0 bg-white/70 lg:bg-white/60"></div>
 
-                <h1
-                    class="text-5xl lg:text-7xl mb-6 leading-tight"
-                    style="font-family: var(--font-body); font-weight: 700;"
-                >
-                    Experience Authentic Ayurvedic Healing
-                </h1>
+    {{-- Content --}}
+    <div class="relative container mx-auto px-4 lg:px-8 h-full flex items-center">
+        <div class="max-w-2xl ">
 
-                <p
-                    class="text-xl lg:text-2xl mb-8 text-white/90"
-                    style="font-family: var(--font-body);"
-                >
-                    Traditional wisdom meets modern care. Restore balance and vitality through time-tested natural therapies.
-                </p>
+            {{-- Eyebrow --}}
+            <span class="mt-6 inline-flex items-center px-4 py-1.5 rounded-full
+                       bg-[var(--primary-green)]/10
+                       text-[var(--primary-green)]
+                       border border-[var(--primary-green)]/20
+                       mb-6 text-sm font-medium backdrop-blur-sm">
+                Wellness Through Ayurveda
+            </span>
 
-                <div class="flex flex-col sm:flex-row gap-4">
-                    {{-- Book Consultation --}}
-                    <a
-                        href="#contact-cta"
-                        class="inline-flex items-center justify-center bg-[var (--primary-green)] hover:bg-[var (--primary-green)]/90 text-white text-lg px-8 py-4 rounded-lg"
-                        style="font-family: var(--font-body);"
-                    >
-                        Book Consultation
-                        <svg class="w-5 h-5 ml-2" viewBox="0 0 24 24" fill="none"
-                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                            <polyline points="12 5 19 12 12 19" />
-                        </svg>
-                    </a>
+            {{-- Heading --}}
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold
+                       text-[var(--neutral-dark)]
+                       leading-tight mb-6">
+                Experience <span class="text-[var(--primary-green)]">Authentic</span><br>
+                Ayurvedic Healing
+            </h1>
 
-                    {{-- Explore Treatments --}}
-                    <a
-                        href="#treatments"
-                        class="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white hover:text-[var(--primary-green)] text-lg px-8 py-4 rounded-lg"
-                        style="font-family: var(--font-body);"
-                    >
-                        Explore Treatments
-                    </a>
-                </div>
+            {{-- Sub text --}}
+            <p class="text-lg lg:text-xl text-[var(--muted-foreground)] mb-10 max-w-xl">
+                Traditional wisdom meets modern care.
+                Restore balance, vitality, and long-term wellness through
+                time-tested natural therapies.
+            </p>
+
+            {{-- CTAs --}}
+            <div class="flex flex-col sm:flex-row gap-4">
+                {{-- Book Consultation --}}
+                <button type="button" onclick="window.dispatchEvent(new CustomEvent('open-booking'))" class="inline-flex items-center justify-center gap-2
+                           bg-[var(--primary-green)]
+                           hover:bg-[var(--primary-green)]/90
+                           text-white text-base lg:text-lg
+                           px-7 py-3.5 rounded-lg
+                           shadow-lg shadow-emerald-900/20
+                           transition-all duration-300">
+                    Book Consultation
+                    <i class="fa-solid fa-arrow-right-long text-sm"></i>
+                </button>
+
+                {{-- Explore Treatments --}}
+                <a href="/treatments" class="inline-flex items-center justify-center
+                          border border-[var(--primary-green)]
+                          text-[var(--primary-green)]
+                          hover:bg-[var(--primary-green)]
+                          hover:text-white
+                          text-base lg:text-lg
+                          px-7 py-3.5 rounded-lg
+                          transition-all duration-300">
+                    Explore Treatments
+                </a>
             </div>
+
         </div>
-    </section>
+    </div>
+</section>
