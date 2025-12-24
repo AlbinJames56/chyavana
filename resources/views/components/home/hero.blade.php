@@ -6,7 +6,7 @@
     <div class="absolute inset-0 bg-white/70 lg:bg-white/60"></div>
 
     {{-- Content --}}
-    <div class="relative container mx-auto px-4 lg:px-8 h-full flex items-center">
+    <div class="relative container   px-8 md:px-14 lg:px-28   mx-auto  h-full flex items-center">
         <div class="max-w-2xl pt-6 ">
 
             {{-- Eyebrow --}}

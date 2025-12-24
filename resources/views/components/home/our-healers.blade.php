@@ -1,5 +1,5 @@
   <section id="healers" class="py-20 bg-[var(--neutral-light)]">
-        <div class="container mx-auto px-4 lg:px-8">
+        <div class="container  px-8 md:px-14 lg:px-28   mx-auto ">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="relative">
                     <img src="{{ asset('images/getting-ready-spa.jpg') }}" alt="Expert Ayurvedic Healers"

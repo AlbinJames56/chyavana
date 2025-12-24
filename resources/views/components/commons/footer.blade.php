@@ -115,7 +115,7 @@ $contactInfo = [
     <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-[var(--accent-light)] rounded-full blur-3xl"></div>
   </div>
 
-  <div class="relativepx-8 md:px-14 lg:px-28   mx-auto px-6  ">
+  <div class="relative px-8 md:px-14 lg:px-28   mx-auto   ">
 
     <!-- Top Section with unique three-column layout -->
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-6 mb-14">

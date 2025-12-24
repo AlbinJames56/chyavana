@@ -1,6 +1,6 @@
  <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-4 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="container    px-8 md:px-14 lg:px-28   mx-auto ">
+            <div class="grid lg:grid-cols-2 gap-12 items-center ">
                 <div>
                     <h2
                         class="text-4xl lg:text-5xl text-[var(--neutral-dark)] mb-6"
