@@ -7,7 +7,7 @@
   ];
 @endphp
 
-<div class="grid grid-cols-2   gap-6 mt-10">
+<div class="grid  md:grid-cols-2   gap-6 mt-10">
 
   @foreach($contacts as $c)
   <div class="group bg-white/80 border border-[var(--border)] rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-all duration-300">

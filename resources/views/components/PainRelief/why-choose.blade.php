@@ -1,4 +1,4 @@
-<section class="py-20 bg-[var(--neutral-light)]">
+<section class="py-10 md:py-20 bg-[var(--neutral-light)]">
     <div class="container mx-auto px-8 lg:px-28">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <h2 class="text-3xl lg:text-4xl text-[var(--neutral-dark)]">Why Choose Ayurveda for Pain Relief?</h2>

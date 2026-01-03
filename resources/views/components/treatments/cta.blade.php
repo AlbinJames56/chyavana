@@ -2,10 +2,10 @@
     'headline' => 'Not Sure Which Program Is Right for You?',
     'text' => 'Schedule a consultation with our expert healers to discuss your health concerns and receive personalized program recommendations.',
     'buttonText' => 'Book Free Consultation',
-    'buttonUrl' => '#'
+
 ])
 
-<section class="py-20 bg-[var(--neutral-light)]">
+<section class="py-10 md:py-20 bg-[var(--neutral-light)]">
     <div class="container mx-auto px-4 lg:px-8">
         
         <div class="max-w-3xl mx-auto text-center bg-white rounded-2xl shadow-lg p-10 border border-[var(--border)]">
@@ -28,12 +28,23 @@
             </p>
 
             {{-- Button --}}
-            <a href="{{ $buttonUrl }}"
-               class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[var(--primary-green)] text-white hover:bg-[var(--primary-green-hover)] transition-all shadow-md hover:shadow-lg text-lg font-medium"
-               style="font-family: var(--font-body);">
-                <i class="fas fa-calendar-check text-xl"></i>
-                {{ $buttonText }}
-            </a>
+          <button
+            type="button"
+            onclick="window.dispatchEvent(new CustomEvent('open-booking'))"
+            class="inline-flex items-center gap-2 px-8 py-4 rounded-xl
+                    bg-[var(--primary-green)]
+                    text-white
+                    hover:brightness-90
+                    transition-all
+                    shadow-md hover:shadow-lg
+                    text-lg font-medium booking-btn"
+            style="font-family: var(--font-body);"
+            >
+            <i class="fas fa-calendar-check text-xl"></i>
+            {{ $buttonText }}
+          </button>
+
+
 
         </div>
 

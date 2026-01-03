@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PainTechnique;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class PainReliefController extends Controller
@@ -66,29 +67,12 @@ class PainReliefController extends Controller
         ];
 
         // Testimonials already handled
-        $testimonials = [
-            [
-                'name' => 'Rajesh Kumar',
-                'condition' => 'Chronic Back Pain',
-                'improvement' => '80%',
-                'duration' => '10 weeks',
-                'quote' => 'After years of relying on painkillers, I found lasting relief through Ayurvedic treatment. My mobility has improved dramatically.',
-            ],
-            [
-                'name' => 'Meera Patel',
-                'condition' => 'Arthritis',
-                'improvement' => '75%',
-                'duration' => '12 weeks',
-                'quote' => 'The personalized herbal treatments and therapeutic massages have given me my life back. I can now do daily activities without pain.',
-            ],
-            [
-                'name' => 'Anil Sharma',
-                'condition' => 'Migraines',
-                'improvement' => '90%',
-                'duration' => '8 weeks',
-                'quote' => 'My migraine frequency reduced from weekly to once a month. The Shirodhara therapy was truly transformative.',
-            ],
-        ];
+        $testimonials = Testimonial::query()
+            ->where('is_published', true)
+            ->orderByDesc('featured')
+            ->orderBy('sort_order', 'asc')
+            ->orderByDesc('created_at')
+            ->get();
         $techniques = PainTechnique::query()
             ->where('available', true)     // updated field
             ->orderBy('featured', 'desc')  // featured items first

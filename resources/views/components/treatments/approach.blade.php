@@ -11,7 +11,7 @@
   ]
 ])
 
-<section class="py-20 bg-[var(--neutral-light)]">
+<section class="py-10 md:py-20 bg-[var(--neutral-light)]">
   <div class="container mx-auto px-4 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
       <div class="relative">
@@ -32,14 +32,14 @@
             <div class="flex items-start gap-4">
               <div class="w-10 h-10 rounded-full bg-[var(--primary-green)]/10 flex items-center justify-center mt-1">
                 @php
-                  $faMap = [
-                          'target'     => 'fa-bullseye',
-                          'users'      => 'fa-users',
-                          'microscope' => 'fa-microscope',
-                          'check'      => 'fa-check-circle',
-                      ];
+  $faMap = [
+    'target' => 'fa-bullseye',
+    'users' => 'fa-users',
+    'microscope' => 'fa-microscope',
+    'check' => 'fa-check-circle',
+  ];
 
-                      $iconClass = $faMap[$item['icon']] ?? 'fa-circle-info';
+  $iconClass = $faMap[$item['icon']] ?? 'fa-circle-info';
                   @endphp
 
                   <i class="fa-solid {{ $iconClass }} text-[var(--primary-green)] text-xl"></i>

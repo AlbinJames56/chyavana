@@ -28,13 +28,13 @@
 
                 <!-- Buttons -->
                 <div class="flex flex-col sm:flex-row gap-4 pt-2">
-                    <a href="/contact"
+                   <button type="button" onclick="window.dispatchEvent(new CustomEvent('open-booking'))" 
                        class="bg-[var(--primary-green)] hover:bg-[var(--primary-green)]/90
                               text-white px-6 py-3 rounded-xl shadow-md transition flex items-center gap-2">
                         Book Consultation <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </a>
+</button>
 
-                    <a href="/healers"
+                    <a href="/OurHealers"
                        class="border border-[var(--primary-green)]
                               hover:bg-[var(--primary-green)]/5
                               text-[var(--primary-green)] px-6 py-3 rounded-xl transition flex items-center gap-2">

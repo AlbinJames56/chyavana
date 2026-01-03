@@ -5,8 +5,8 @@
 
         <x-get-started.hero />
 
-        <section class="py-20">
-            <div class="container mx-auto  mx-auto px-8 md:px-14 lg:px-28 grid lg:grid-cols-2 gap-12">
+        <section class="py-8 md:py-20">
+            <div class="container mx-auto   px-8 md:px-14 lg:px-28 grid lg:grid-cols-2 gap-12">
 
                 <div>
                     <x-get-started.form />

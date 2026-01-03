@@ -1,14 +1,14 @@
- <section id="why-us" class="py-20 bg-gradient-to-br from-[var(--primary-green)] to-[var(--primary-green)]/80 text-white">
-        <div class="container mx-auto px-4 lg:px-8">
+ <section id="why-us" class="py-8 md:py-20 bg-gradient-to-br from-[var(--primary-green)] to-[var(--primary-green --)]/80 text-white">
+        <div class="container  px-8 md:px-14 lg:px-28   mx-auto ">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2
-                    class="text-4xl lg:text-5xl mb-4"
+                    class="text-4xl lg:text-5xl mb-4 text-white"
                     style="font-family: var(--font-body); font-weight: 700;"
                 >
                     Why Choose Chyavana Ayurveda Hospital?
                 </h2>
                 <p
-                    class="text-lg text-white/90"
+                    class="text-lg text-white/70"
                     style="font-family: var(--font-body);"
                 >
                     Experience the difference of authentic, patient-centered Ayurvedic care

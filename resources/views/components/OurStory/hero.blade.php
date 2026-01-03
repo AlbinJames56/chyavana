@@ -1,4 +1,4 @@
-<section class="relative py-16 md:py-28 overflow-hidden">
+<section class="relative py-16 md:py-28 mt-12 md:mt-0 overflow-hidden">
   
   <!-- Soft background gradient wash -->
   <div class="absolute inset-0 bg-gradient-to-br from-[var(--primary-green)]/5 via-white to-[var(--primary-green)]/10"></div>
@@ -44,13 +44,13 @@
 
         <!-- Minimal elegant CTAs -->
         <div class="flex flex-wrap gap-4 pt-4">
-          <a href="/contact"
+          <button type="button" onclick="window.dispatchEvent(new CustomEvent('open-booking'))"
              class="px-7 py-3 rounded-full bg-[var(--primary-green)] text-white font-medium shadow-md hover:shadow-lg transition-all flex items-center gap-2">
             <i class="fa-solid fa-calendar-check"></i>
             Book a Consultation
-          </a>
+</button>
 
-          <a href="/healers"
+          <a href="/OurHealers"
              class="px-7 py-3 rounded-full border border-[var(--primary-green)] text-[var(--primary-green)] font-medium hover:bg-[var(--primary-green)]/10 transition-all flex items-center gap-2">
             <i class="fa-solid fa-user-doctor"></i>
             Meet Our Healers

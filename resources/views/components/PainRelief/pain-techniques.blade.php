@@ -1,4 +1,4 @@
-<section id="pain-techniques" class="py-16 container mx-auto px-8 lg:px-28">
+<section id="pain-techniques" class="py-10 md:py-16 container mx-auto px-8 lg:px-28">
     <div class="container mx-auto ">
         <h2 class="text-3xl font-bold mb-6">Pain Management Techniques</h2>
         <p class="prose mb-8">Our proven techniques to manage and reduce pain — personalized to your body and dosha.</p>

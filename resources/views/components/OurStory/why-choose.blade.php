@@ -1,4 +1,4 @@
-<section class="py-16 bg-[var(--neutral-light)]">
+<section class="py-8 md:py-16 bg-[var(--neutral-light)]">
   <div class="container mx-auto px-8 md:px-14 lg:px-28">
 
     <!-- Section Header -->

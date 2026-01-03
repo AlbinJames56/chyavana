@@ -48,7 +48,7 @@
     </section>
 
     <!-- Programs Grid -->
-    <section class="py-20">
+    <section class="py-10 md:py-20">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="grid md:grid-cols-2 gap-8">
                 @forelse($treatments as $t)
