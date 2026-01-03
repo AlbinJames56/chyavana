@@ -1,4 +1,4 @@
- <section id="about" class="py-20 bg-white">
+ <section id="about" class="py-8 md:py-20 bg-white">
         <div class="container    px-8 md:px-14 lg:px-28   mx-auto ">
             <div class="grid lg:grid-cols-2 gap-12 items-center ">
                 <div>

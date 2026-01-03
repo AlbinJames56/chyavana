@@ -1,4 +1,4 @@
-<section id="contact-cta" class="py-20 bg-[var(--primary-green)] text-white">
+<section id="contact-cta" class="py-8 md:py-20 bg-[var(--primary-green)] text-white">
         <div class="container  px-8 md:px-14 lg:px-28   mx-auto text-center">
             <div class="max-w-3xl mx-auto">
                 <h2

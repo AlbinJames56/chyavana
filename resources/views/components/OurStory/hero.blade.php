@@ -1,4 +1,4 @@
-<section class="relative py-16 md:py-28 overflow-hidden">
+<section class="relative py-16 md:py-28 mt-12 md:mt-0 overflow-hidden">
   
   <!-- Soft background gradient wash -->
   <div class="absolute inset-0 bg-gradient-to-br from-[var(--primary-green)]/5 via-white to-[var(--primary-green)]/10"></div>

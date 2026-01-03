@@ -1,4 +1,4 @@
- <section id="why-us" class="py-20 bg-gradient-to-br from-[var(--primary-green)] to-[var(--primary-green --)]/80 text-white">
+ <section id="why-us" class="py-8 md:py-20 bg-gradient-to-br from-[var(--primary-green)] to-[var(--primary-green --)]/80 text-white">
         <div class="container  px-8 md:px-14 lg:px-28   mx-auto ">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2

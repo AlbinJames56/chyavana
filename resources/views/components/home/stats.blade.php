@@ -1,10 +1,10 @@
-<section id="stats" class="py-20 bg-white">
+<section id="stats" class="py-8 md:py-20 bg-white">
         <div class="container  px-8 md:px-14 lg:px-28   mx-auto ">
             <div class="grid  grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                 <x-cards.stat-card value="5,000+" label="Patients Healed">
                     <x-slot:icon>
                         {{-- Users --}}
-                        <svg class="w-14 h-14 text-[var (--primary-green)] mx-auto"
+                        <svg class="w-14 h-14 text-[var(--primary-green)] mx-auto"
                              viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -17,7 +17,7 @@
 
                 <x-cards.stat-card value="20+" label="Years Experience">
                     <x-slot:icon>
-                        <svg class="w-14 h-14 text-[var (--primary-green)] mx-auto"
+                        <svg class="w-14 h-14 text-[var(--primary-green)] mx-auto"
                              viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10" />
@@ -39,14 +39,15 @@
 
                 <x-cards.stat-card value="15+" label="Expert Healers">
                     <x-slot:icon>
+                        <i class="fa-solid fa-stethoscope text-5xl   text-[var(--primary-green)] mx-auto"></i>
                         {{-- Stethoscope-ish --}}
-                        <svg class="w-14 h-14 text-[var(--primary-green)] mx-auto"
+                        <!-- <svg class="w-14 h-14 text-[var(--primary-green)] mx-auto"
                              viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 3v6a6 6 0 0 0 12 0V3" />
                             <circle cx="18" cy="18" r="3" />
                             <path d="M9 18h3a3 3 0 0 0 3-3v-3" />
-                        </svg>
+                        </svg> -->
                     </x-slot:icon>
                 </x-cards.stat-card>
             </div>

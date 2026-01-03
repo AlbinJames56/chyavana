@@ -8,7 +8,7 @@
   ]
 ])
 
-<section class="py-20 bg-gradient-to-br from-[var(--primary-green)] to-[var(--primary-green)]/80 text-white">
+<section class="py-10 md:py-20 bg-gradient-to-br from-[var(--primary-green)] to-[var(--primary-green)]/80 text-white">
   <div class="container mx-auto px-4 lg:px-8">
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h2 class="text-4xl lg:text-5xl mb-4 text-white" style="font-family:var(--font-body);font-weight:700">
@@ -23,15 +23,15 @@
           <div class="p-8 space-y-4">
             <div class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto">
               @php
-                // map your friendly keys to Font Awesome icon classes
-                $faMap = [
-                  'leaf'  => 'fa-leaf',
-                  'users' => 'fa-users',
-                  'heart' => 'fa-heart',
-                ];
+  // map your friendly keys to Font Awesome icon classes
+  $faMap = [
+    'leaf' => 'fa-leaf',
+    'users' => 'fa-users',
+    'heart' => 'fa-heart',
+  ];
 
-                $key = strtolower($b['icon'] ?? '');
-                $iconClass = $faMap[$key] ?? 'fa-circle-info';
+  $key = strtolower($b['icon'] ?? '');
+  $iconClass = $faMap[$key] ?? 'fa-circle-info';
               @endphp
 
               {{-- Use 'fa-solid' for Font Awesome 6+; change prefix if needed --}}

@@ -1,12 +1,12 @@
-<section id="hero" class="relative h-[620px] lg:h-[740px] overflow-hidden">
+<section id="hero" class="relative h-[620px] lg:h-[740px] overflow-hidden my-8   ">
     {{-- Background image --}}
     <img src="/images/bg-4.jpg" alt="Ayurvedic healing" class="absolute inset-0 w-full h-full object-cover">
 
     {{-- Soft overlay for readability --}}
-    <div class="absolute inset-0 bg-white/70 lg:bg-white/60"></div>
+    <div class="absolute inset-0 bg-white/70 lg:bg-white/60 "></div>
 
     {{-- Content --}}
-    <div class="relative container   px-8 md:px-14 lg:px-28   mx-auto  h-full flex items-center">
+    <div class="relative container   px-8 md:px-14 lg:px-28   mx-auto  h-full flex items-center py-8 b">
         <div class="max-w-2xl pt-6 ">
 
             {{-- Eyebrow --}}

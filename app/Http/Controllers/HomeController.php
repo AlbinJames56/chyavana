@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Doctors;
 use App\Models\PainTechnique;
 use App\Models\Treatment;
 
@@ -21,6 +22,13 @@ class HomeController extends Controller
             ->orderBy('created_at', 'asc')
             ->limit(4)
             ->get();
-        return view('pages.home', compact('treatments', 'painPrograms'));
+        $homeHealers = Doctors::query()
+            ->where('available', true)
+            ->orderBy('featured', 'desc')
+            ->orderBy('name', 'asc')
+            ->limit(3)
+            ->get();
+
+        return view('pages.home', compact('treatments', 'painPrograms', 'homeHealers'));
     }
 }

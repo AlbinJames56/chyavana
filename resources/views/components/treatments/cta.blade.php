@@ -5,7 +5,7 @@
 
 ])
 
-<section class="py-20 bg-[var(--neutral-light)]">
+<section class="py-10 md:py-20 bg-[var(--neutral-light)]">
     <div class="container mx-auto px-4 lg:px-8">
         
         <div class="max-w-3xl mx-auto text-center bg-white rounded-2xl shadow-lg p-10 border border-[var(--border)]">

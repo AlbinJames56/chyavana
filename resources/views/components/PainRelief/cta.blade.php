@@ -1,4 +1,4 @@
-<section class="py-20 bg-[var(--primary-green)] text-white text-center">
+<section class="py-10 md:py-20 bg-[var(--primary-green)] text-white text-center">
     <div class="container mx-auto px-4 lg:px-8">
 
         <h2 class="text-3xl lg:text-4xl mb-6 text-white">Ready to Live Pain-Free?</h2>

@@ -1,13 +1,13 @@
 @props([
-    'steps' => [
-        ['step' => '01', 'title' => 'Initial Consultation', 'description' => 'Comprehensive assessment of your health history, lifestyle, and wellness goals'],
-        ['step' => '02', 'title' => 'Constitution Analysis', 'description' => 'Detailed Prakriti (body type) and Vikriti (imbalance) evaluation'],
-        ['step' => '03', 'title' => 'Customized Plan', 'description' => 'Personalized treatment protocol designed specifically for you'],
-        ['step' => '04', 'title' => 'Ongoing Care', 'description' => 'Regular monitoring, adjustments, and long-term wellness support'],
-    ]
+  'steps' => [
+    ['step' => '01', 'title' => 'Initial Consultation', 'description' => 'Comprehensive assessment of your health history, lifestyle, and wellness goals'],
+    ['step' => '02', 'title' => 'Constitution Analysis', 'description' => 'Detailed Prakriti (body type) and Vikriti (imbalance) evaluation'],
+    ['step' => '03', 'title' => 'Customized Plan', 'description' => 'Personalized treatment protocol designed specifically for you'],
+    ['step' => '04', 'title' => 'Ongoing Care', 'description' => 'Regular monitoring, adjustments, and long-term wellness support'],
+  ]
 ])
        
-<section class="py-20 bg-white">
+<section class="py-10 md:py-20 bg-white">
   <div class="container mx-auto px-4 lg:px-8">
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h2 class="text-4xl lg:text-5xl text-[var(--neutral-dark)] mb-4" style="font-family:var(--font-body);font-weight:700">

@@ -118,7 +118,7 @@ $contactInfo = [
   <div class="relative px-8 md:px-14 lg:px-28   mx-auto   ">
 
     <!-- Top Section with unique three-column layout -->
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-6 mb-14">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-8 mb-14">
 
 
       <!-- Brand Column with enhanced design -->
@@ -133,20 +133,15 @@ $contactInfo = [
 
         <div class="relative z-10">
           <div class="mb-8 transform transition-transform duration-500 hover:scale-[1.02]  ">
-          <img src="/images/logo-title.png" alt="Chyavana Ayur Retreat" class="w-54 mb-6 drop-shadow-lg filter brightness-110 contrast-110
+          <img src="/images/logo-title.png" alt="Chyavana Ayur Retreat" class="w-90 mb-6 drop-shadow-lg filter brightness-110 contrast-110
                    mx-auto lg:mx-0
                    block" />
 
           </div>
 
-          <p
-            class="text-[var(--muted)] leading-relaxed mb-8 text-lg font-light italic border-l-4 border-[var(--accent)] pl-4 py-2 bg-white/50 rounded-r-lg">
-            "Experience authentic Ayurveda rooted in ancient wisdom and enhanced with modern holistic care —
-            restoring balance, vitality and natural wellness."
-          </p>
-
+         
           <!-- Animated badges -->
-          <!-- <div class="flex   gap-3">
+          <div class="flex   gap-3">
             <span
               class="inline-flex items-center gap-3 px-2 py-1 bg-white border border-[var(--border)] rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group">
               <div
@@ -164,7 +159,7 @@ $contactInfo = [
               </div>
               <span class="font-medium text-[var(--text)] text-sm">Natural Treatments</span>
             </span>
-          </div> -->
+          </div>
         </div>
       </div>
 
@@ -172,6 +167,53 @@ $contactInfo = [
       <div class="lg:col-span-2">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- Contact Info Section -->
+            <div class="space-y-8">  
+              <div class="flex-1 items-center justify-between gap-6 mb-3">
+              
+                <!-- Social Media -->
+                <div class="text-center lg:text-left">
+                  <h3 class="text-2xl font-bold text-[var(--text)] mb-4 relative inline-block">
+                  Stay Connected
+                    <span
+                      class="absolute -bottom-2 left-0 w-12 h-1 bg-gradient-to-r from-[var(--accent)] to-transparent rounded-full"></span>
+                  </h3>
+                   
+                 
+                 <p class="text-[var(--muted)] max-w-md">Follow us for wellness tips & clinic updates</p>
+                </div>
+               
+                <div class="flex gap-4">
+                  @foreach($socialLinks as $s)
+                    <a href="{{ $s['href'] }}" target="_blank" aria-label="{{ $s['label'] }}"
+                      class="social-hover w-14 h-14 flex items-center justify-center bg-white border border-[var(--border)] rounded-xl text-[var(--text)] shadow-sm hover:shadow-lg">
+                      <div class="relative">
+                        @if($s['icon'] === 'facebook')
+                          <i class="fab fa-facebook-f text-lg"></i>
+                        @else
+                          <i class="fab fa-instagram text-lg"></i>
+                        @endif
+                        <!-- Hover effect circle -->
+                        <span
+                          class="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-[var(--accent)]/30 transition-all duration-300"></span>
+                      </div>
+                    </a>
+                  @endforeach
+              
+                  <!-- Call to Action Button -->
+                  <a href="tel:+919497076557"
+                    class="group flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-dark)] text-white rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                    <i class="fa-solid fa-phone"></i>
+                    <span class="font-bold">Call Now</span>
+                  </a>
+                </div>
+                 <p
+            class="text-[var(--muted)] leading-relaxed my-8 text-lg font-light italic border-l-4 border-[var(--accent)] pl-4 py-2 bg-white/50 rounded-r-lg">
+            "Experience authentic Ayurveda rooted in ancient wisdom and enhanced with modern holistic care -
+            restoring balance, vitality and natural wellness."
+          </p>
+
+              </div> 
+          </div>
           <div>
             <h3 class="text-2xl font-bold text-[var(--text)] mb-4 relative inline-block">
               Get In Touch
@@ -206,76 +248,13 @@ $contactInfo = [
             </div>
           </div>
  
-          <div class="space-y-8"> 
-            
-
-            <!-- Partner Badge with unique design -->
-            <div class="mt-6">
-              <div
-                class="relative overflow-hidden rounded-2xl border border-[var(--border)] bg-gradient-to-br from-white to-[var(--accent-light)]/30 p-5 shadow-sm hover:shadow-lg transition-all duration-500">
-                <!-- Background pattern -->
-                <div class="absolute top-0 right-0 w-24 h-24 opacity-10">
-                  <svg viewBox="0 0 100 100" fill="currentColor" class="text-[var(--accent)]">
-                    <circle cx="50" cy="50" r="45" />
-                  </svg>
-                </div>
-
-                <div class="relative z-10">
-                  <p
-                    class="text-sm font-semibold text-[var(--muted)] mb-3 uppercase tracking-wider flex items-center gap-2">
-                    <i class="fa-solid fa-handshake text-[var(--accent)]"></i>
-                    Our Trusted Partner
-                  </p>
-                  <div class="flex items-center justify-center  bg-white rounded-xl shadow-inner">
-
-                   <img src="{{ asset('images/kotakllogo.jpg') }}" alt="Kotak Partner"
-  class="max-h-46 w-auto object-contain rounded-xl   hover:grayscale-0 transition-all duration-300">
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+         
         </div>
       </div>
     </div>
+ 
 
-    <!-- Social & Bottom Section with unique divider -->
-    <div class="pt-3 border-t border-[var(--border)] divider-glow">
-
-    <div class="flex flex-col lg:flex-row items-center justify-between gap-6 mb-3">
-
-        <!-- Social Media -->
-        <div class="text-center lg:text-left">
-          <h4 class="text-xl font-bold text-[var(--text)] mb-2">Stay Connected</h4>
-          <p class="text-[var(--muted)] max-w-md">Follow us for wellness tips & clinic updates</p>
-        </div>
-
-        <div class="flex gap-4">
-          @foreach($socialLinks as $s)
-            <a href="{{ $s['href'] }}" target="_blank" aria-label="{{ $s['label'] }}"
-              class="social-hover w-14 h-14 flex items-center justify-center bg-white border border-[var(--border)] rounded-xl text-[var(--text)] shadow-sm hover:shadow-lg">
-              <div class="relative">
-                @if($s['icon'] === 'facebook')
-                  <i class="fab fa-facebook-f text-lg"></i>
-                @else
-                  <i class="fab fa-instagram text-lg"></i>
-                @endif
-                <!-- Hover effect circle -->
-                <span
-                  class="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-[var(--accent)]/30 transition-all duration-300"></span>
-              </div>
-            </a>
-          @endforeach
-
-          <!-- Call to Action Button -->
-          <a href="tel:+919497076557"
-            class="group flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-dark)] text-white rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-            <i class="fa-solid fa-phone"></i>
-            <span class="font-bold">Call Now</span>
-          </a>
-        </div>
-      </div>
+    
 
       <!-- Copyright & Links with unique design -->
       <div class="pt-4 border-t border-[var(--border)]">

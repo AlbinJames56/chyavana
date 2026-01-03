@@ -1,4 +1,4 @@
- <section id="pain-relief" class="py-20 bg-white">
+ <section id="pain-relief" class="py-8 md:py-20 bg-white">
         <div class="container  px-8 md:px-14 lg:px-28   mx-auto ">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2

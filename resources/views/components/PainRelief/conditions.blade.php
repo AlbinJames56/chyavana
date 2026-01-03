@@ -1,4 +1,4 @@
-<section class="py-20">
+<section class="py-10 md:py-20">
     <div class="container mx-auto px-8 lg:px-28">
 
         <div class="text-center max-w-2xl mx-auto mb-16">

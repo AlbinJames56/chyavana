@@ -5,7 +5,7 @@
 
 <div x-data="{ open: false, src: null, isEmbed: false }" x-cloak>
 
-    <section class="py-20">
+    <section class="py-10 md:py-20">
         <div class="container mx-auto px-8 lg:px-28">
 
             {{-- Section header --}}

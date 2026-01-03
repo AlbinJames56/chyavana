@@ -1,4 +1,4 @@
-<section class="py-20 bg-[var(--primary-green)] text-white">
+<section class="py-12 md:py-20 bg-[var(--primary-green)] text-white">
   <div class="container mx-auto mx-auto px-8 md:px-14 lg:px-28 text-center">
     <h2 class="text-3xl lg:text-4xl mb-6 text-white">Become Part of Our Wellness Community</h2>
     <p class="text-lg text-white/70 mb-8 max-w-2xl mx-auto">Join thousands of patients who have discovered the transformative power of Ayurveda</p>

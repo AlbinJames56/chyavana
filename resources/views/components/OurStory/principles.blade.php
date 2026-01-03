@@ -1,4 +1,4 @@
-<section class="py-20">
+<section class="py-8 md:py-20">
   <div class="container mx-auto mx-auto px-8 md:px-14 lg:px-28">
     <div class="text-center max-w-2xl mx-auto mb-16">
       <h2 class="  text-[var(--neutral-dark)] mb-4">Ayurvedic Principles We Practice</h2>
