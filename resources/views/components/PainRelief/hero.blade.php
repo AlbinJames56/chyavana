@@ -43,7 +43,7 @@
                 </div>
 
                 <!-- STATS -->
-                <div class="grid grid-cols-3 gap-6 pt-8">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6 pt-8">
                     <div class="text-center bg-white shadow-sm rounded-xl py-4 border border-[var(--border)]">
                         <p class="text-3xl font-bold text-[var(--primary-green)]">2,500+</p>
                         <p class="text-sm text-[var(--muted-foreground)]">Cases Treated</p>

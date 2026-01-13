@@ -1,14 +1,12 @@
 @php use Illuminate\Support\Facades\Storage; @endphp
-
-{{-- Swiper CSS --}}
+ 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
 <div x-data="{ open: false, src: null, isEmbed: false }" x-cloak>
 
     <section class="py-10 md:py-20">
         <div class="container mx-auto px-8 lg:px-28">
-
-            {{-- Section header --}}
+ 
             <div class="text-center max-w-2xl mx-auto mb-10">
                 <h2 class="text-3xl lg:text-4xl text-[var(--neutral-dark)]">
                     Success Stories
@@ -18,10 +16,10 @@
                 </p>
             </div>
 
-            {{-- Slider wrapper --}}
+          
             <div class="relative">
 
-                {{-- Left Arrow --}}
+        
                 <button class="swiper-button-prev absolute left-0 -translate-x-16 top-1/2 -translate-y-1/2 z-40
                w-14 h-14 rounded-full bg-white shadow-lg
                flex items-center justify-center
@@ -36,7 +34,7 @@
                         @foreach($testimonials as $t)
                                 @php
                                     $hasUpload = !empty($t->video_file) && Storage::disk('public')->exists($t->video_file);
-                                    $uploadUrl = $hasUpload ? Storage::url($t->video_file) : null;
+                                    $uploadUrl = $hasUpload ? asset('storage/' . $t->video_file) : null;
 
                                     $hasEmbed = !empty($t->video_embed_url);
                                     $embedUrl = $hasEmbed ? $t->video_embed_url : null;
@@ -61,9 +59,9 @@
                                        text-[var(--primary-green)]">
                                                 {{ $t->improvement ?? '—' }} Improvement
                                             </span> -->
-                                            <span class="text-sm text-[var(--muted-foreground)]">
+                                            <!-- <span class="text-sm text-[var(--muted-foreground)]">
                                                 {{ $t->duration ?? '—' }}
-                                            </span>
+                                            </span> -->
                                         </div>
 
                                         {{-- Video OR Text --}}
@@ -88,7 +86,7 @@
                                                 </div>
                                             </div>
                                         @else
-                                            <div class="flex-1 overflow-auto pr-1">
+                                            <div class="flex-1 overflow-auto pr-1 flex flex-col items-center justify-center text-center">
                                                 <p class="italic text-[var(--muted-foreground)] leading-relaxed">
                                                     “{{ $t->quote }}”
                                                 </p>

@@ -34,3 +34,7 @@ Route::get('/treatments/{slug}', [TreatmentController::class, 'show'])->name('tr
 
 Route::post('/appointments', [AppointmentController::class, 'store'])
     ->name('appointments.store');
+
+Route::fallback(function () {
+    return redirect()->route('home');
+});

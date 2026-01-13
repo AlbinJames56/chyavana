@@ -18,7 +18,7 @@ class DoctorsForm
             ->components([
                 TextInput::make('name')
                     ->required()
-                    ->reactive()
+                    ->live(onBlur: true)
                     ->afterStateUpdated(fn($state, callable $set) => $set('slug', Str::slug($state))),
                 TextInput::make('slug')
                     ->required()

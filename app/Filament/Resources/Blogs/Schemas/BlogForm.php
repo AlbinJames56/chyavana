@@ -16,7 +16,7 @@ class BlogForm
     {
         return $schema
             ->components([
-                TextInput::make('title')->required()->reactive()
+                TextInput::make('title')->required()->live(onBlur: true)
                     ->afterStateUpdated(fn($state, $set) => $set('slug', \Str::slug($state))),
                 TextInput::make('slug')->required()->unique(ignoreRecord: true),
                 TextInput::make('author'),
