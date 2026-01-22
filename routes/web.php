@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OurHealersController;
 use App\Http\Controllers\OurStoryController;
@@ -23,6 +24,8 @@ Route::get('/OurHealers', [OurHealersController::class, 'index']);
 Route::get('/OurHealers/{slug}', [OurHealersController::class, 'show'])->name('healers.show');
 
 Route::get('/our-story', [OurStoryController::class, 'index'])->name('our-story');
+
+Route::get('/gallery', [ GalleryController::class, 'index'])->name('gallery');
 
 Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
 

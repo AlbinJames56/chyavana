@@ -2,12 +2,12 @@
     'title' => '',
     'description' => '',
     'image' => null,
-    'icon' => null, 
+    'icon' => null,
     'includes' => [],
     'duration' => '',
     'effectiveness' => '',
     'category' => '',
-    'url' => null, 
+    'url' => null,
 ])
 
 <div {{ $attributes->merge([
@@ -19,7 +19,7 @@
 ]) }}>
 
     {{-- Image Section --}}
-    <div class="relative h-56 overflow-hidden">
+    <div class="relative h-64 overflow-hidden">
        <img
             src="{{ $image ?: asset('images/placeholder.jpg') }}"
             alt="{{ $title }}"
@@ -77,31 +77,31 @@
         {{-- Includes --}}
             {{-- Includes --}}
         @php
-            // Normalize $includes into an array of strings
-            $includesList = collect($includes ?? [])->map(function($it) {
-                // already a string
-                if (is_string($it)) {
-                    return $it;
-                }
+// Normalize $includes into an array of strings
+$includesList = collect($includes ?? [])->map(function ($it) {
+    // already a string
+    if (is_string($it)) {
+        return $it;
+    }
 
-                // array with "value" key (Repeater saved)
-                if (is_array($it) && array_key_exists('value', $it)) {
-                    return (string) $it['value'];
-                }
+    // array with "value" key (Repeater saved)
+    if (is_array($it) && array_key_exists('value', $it)) {
+        return (string) $it['value'];
+    }
 
-                // object with property 'value'
-                if (is_object($it) && isset($it->value)) {
-                    return (string) $it->value;
-                }
+    // object with property 'value'
+    if (is_object($it) && isset($it->value)) {
+        return (string) $it->value;
+    }
 
-                // scalar values (int/float/bool)
-                if (is_scalar($it)) {
-                    return (string) $it;
-                }
+    // scalar values (int/float/bool)
+    if (is_scalar($it)) {
+        return (string) $it;
+    }
 
-                // fallback: JSON-encode complex types
-                return json_encode($it);
-            })->filter()->values()->all();
+    // fallback: JSON-encode complex types
+    return json_encode($it);
+})->filter()->values()->all();
         @endphp
 
         @if(!empty($includesList))
