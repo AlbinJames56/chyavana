@@ -28,10 +28,15 @@ class TreatmentForm
                             ->schema([
                                 Section::make()
                                     ->schema([
-                                        TextInput::make('title')->required()->reactive()->columnSpanFull(),
+                                        TextInput::make('title')
+                                            ->required()
+                                            ->live(onBlur: true)
+                                            ->afterStateUpdated(fn ($set, ?string $state) => $set('slug', \Illuminate\Support\Str::slug($state)))
+                                            ->columnSpanFull(),
                                         TextInput::make('slug')
                                             ->unique(ignoreRecord: true)
                                             ->helperText('Leave empty to auto-generate from title.'),
+                                            
                                         TextInput::make('icon')->placeholder('e.g. brain, droplets'),
                                         TextInput::make('category')->placeholder('e.g. mental, digestive'),
                                         Forms\Components\Slider::make('effectiveness')
@@ -53,32 +58,60 @@ class TreatmentForm
                                             ])
                                             ->default('published')
                                             ->required(),
-                                        TextInput::make('sort_order')->numeric(),
+                                        TextInput::make('sort_order')->numeric()->default(0)->required(),
                                     ])
                             ]),
                         Tabs\Tab::make('Content Sections')
                             ->schema([
+                                TextInput::make('content_section_title_1')->label('Section 1 Title'),
                                 RichEditor::make('content_section_1')
                                     ->label('Section 1 - HTML content')
                                     ->toolbarButtons([
-                                        'bold', 'italic', 'link', 'h2', 'h3', 'blockquote', 'code', 'bulletList', 'orderedList', 'table'
-                                    ])
-                                    ->columnSpanFull(),
-                                TextInput::make('content_section_title_1')->label('Section 1 Title'),
-                                RichEditor::make('content_section_2')
-                                    ->label('Section 2 - HTML content')
-                                    ->toolbarButtons([
-                                        'bold', 'italic', 'link', 'h2', 'h3', 'blockquote', 'code', 'bulletList', 'orderedList', 'table'
+                                        'bold',
+                                        'italic',
+                                        'link',
+                                        'h2',
+                                        'h3',
+                                        'blockquote',
+                                        'code',
+                                        'bulletList',
+                                        'orderedList',
+                                        'table'
                                     ])
                                     ->columnSpanFull(),
                                 TextInput::make('content_section_title_2')->label('Section 2 Title'),
-                                RichEditor::make('content_section_3')
-                                    ->label('Section 3 - HTML content')
+                                RichEditor::make('content_section_2')
+                                    ->label('Section 2 - HTML content')
                                     ->toolbarButtons([
-                                        'bold', 'italic', 'link', 'h2', 'h3', 'blockquote', 'code', 'bulletList', 'orderedList', 'table'
+                                        'bold',
+                                        'italic',
+                                        'link',
+                                        'h2',
+                                        'h3',
+                                        'blockquote',
+                                        'code',
+                                        'bulletList',
+                                        'orderedList',
+                                        'table'
                                     ])
                                     ->columnSpanFull(),
                                 TextInput::make('content_section_title_3')->label('Section 3 Title'),
+                                RichEditor::make('content_section_3')
+                                    ->label('Section 3 - HTML content')
+                                    ->toolbarButtons([
+                                        'bold',
+                                        'italic',
+                                        'link',
+                                        'h2',
+                                        'h3',
+                                        'blockquote',
+                                        'code',
+                                        'bulletList',
+                                        'orderedList',
+                                        'table'
+                                    ])
+                                    ->columnSpanFull(),
+
                             ]),
                         Tabs\Tab::make('Media')
                             ->schema([

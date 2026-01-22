@@ -18,7 +18,8 @@
              
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
       @foreach($steps as $process) 
-        <div class="border-[var(--border)] text-center rounded-2xl overflow-hidden bg-white">
+        <div class="border-[var(--border)] text-center rounded-2xl overflow-hidden bg-white"
+             data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
           <div class="p-6 space-y-4">
             <div class="text-5xl text-[var(--primary-green)]/20" style="font-family:var(--font-body);font-weight:700">
               {{ $process['step'] }}

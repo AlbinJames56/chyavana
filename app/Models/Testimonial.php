@@ -18,6 +18,7 @@ class Testimonial extends Model
         'thumbnail',
         'is_published',
         'featured',
+        'type',
         'sort_order',
     ];
 
@@ -31,7 +32,7 @@ class Testimonial extends Model
     {
         $videoFile = $this->attributes['video_file'] ?? null;
         if (!empty($videoFile) && Storage::disk('public')->exists($videoFile)) {
-            return Storage::url($videoFile);
+            return asset('storage/' . $videoFile);
         }
 
         return $this->attributes['video_url'] ?? null;
@@ -44,7 +45,7 @@ class Testimonial extends Model
     {
         $thumb = $this->attributes['thumbnail'] ?? null;
         if (!empty($thumb) && Storage::disk('public')->exists($thumb)) {
-            return Storage::url($thumb);
+            return asset('storage/' . $thumb);
         }
 
         return asset('images/default-testimonial.jpg');

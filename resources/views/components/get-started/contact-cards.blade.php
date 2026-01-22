@@ -10,9 +10,12 @@
 <div class="grid  md:grid-cols-2   gap-6 mt-10">
 
   @foreach($contacts as $c)
-  <div class="group bg-white/80 border border-[var(--border)] rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-all duration-300">
+    <div
+      class="group bg-white/80 border border-[var(--border)] rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-all duration-300"
+      data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
 
-      <div class="mx-auto w-14 h-14 rounded-full bg-[var(--primary-green)]/10 flex items-center justify-center group-hover:bg-[var(--primary-green)]/20 transition">
+      <div
+        class="mx-auto w-14 h-14 rounded-full bg-[var(--primary-green)]/10 flex items-center justify-center group-hover:bg-[var(--primary-green)]/20 transition">
         <i class="fa-solid {{ $c['icon'] }} text-[var(--primary-green)] text-xl"></i>
       </div>
 
@@ -39,13 +42,13 @@
           </a>
         @elseif($c['title'] === 'Visit Us')
           <a href="https://maps.google.com/?q=Chyavana Ayur Retreat Ayurveda Hospital" target="_blank"
-             class="text-[var(--primary-green)] text-sm hover:underline">
+            class="text-[var(--primary-green)] text-sm hover:underline">
             View Map →
           </a>
         @endif
       </div>
 
-  </div>
+    </div>
   @endforeach
 
 </div>

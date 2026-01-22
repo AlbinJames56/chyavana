@@ -1,26 +1,26 @@
 {{-- resources/views/components/footer.blade.php --}}
 @php
-$quickLinks = [
-  ['label' => 'About Us', 'href' => '#about'],
-  ['label' => 'Practitioners', 'href' => '#practitioners'],
-  ['label' => 'Contact', 'href' => '#contact'],
-];
+  $quickLinks = [
+    ['label' => 'About Us', 'href' => '#about'],
+    ['label' => 'Practitioners', 'href' => '#practitioners'],
+    ['label' => 'Contact', 'href' => '#contact'],
+  ];
 
-$socialLinks = [
-  ['icon' => 'facebook', 'href' => 'https://www.facebook.com/ayurretreat/', 'label' => 'Facebook'],
-  ['icon' => 'instagram', 'href' => 'https://www.instagram.com/chyavana_ayur_retreat/', 'label' => 'Instagram'],
-];
+  $socialLinks = [
+    ['icon' => 'facebook', 'href' => 'https://www.facebook.com/ayurretreat/', 'label' => 'Facebook'],
+    ['icon' => 'instagram', 'href' => 'https://www.instagram.com/chyavana_ayur_retreat/', 'label' => 'Instagram'],
+  ];
 
-$contactInfo = [
-  ['icon' => 'phone', 'label' => 'Call Us', 'value' => '+91 94970 76557'],
-  ['icon' => 'mail', 'label' => 'Email Us', 'value' => 'jeevanamwellnessdigital@gmail.com'],
-  [
-    'icon' => 'location',
-    'label' => 'Address',
-    'value' =>
-      'Chyavana Ayur Retreat Ayurveda Hospital, near Thethana Temple, Thekkumthara, Kerala 673124'
-  ],
-];
+  $contactInfo = [
+    ['icon' => 'phone', 'label' => 'Call Us', 'value' => '+91 94970 76557'],
+    ['icon' => 'mail', 'label' => 'Email Us', 'value' => 'chyavanaayurvedha@gmail.com'],
+    [
+      'icon' => 'location',
+      'label' => 'Address',
+      'value' =>
+        'Chyavana Ayur Retreat Ayurveda Hospital, near Thethana Temple, Thekkumthara, Kerala 673124'
+    ],
+  ];
 @endphp
 
 <style>
@@ -107,7 +107,8 @@ $contactInfo = [
 </style>
 
 <footer
-  class="chyavana-footer bg-gradient-to-br from-[var(--bg1)] to-[var(--bg2)] text-[var(--text)] pt-14 pb-8  relative overflow-hidden">
+  class="chyavana-footer bg-gradient-to-br from-[var(--bg1)] to-[var(--bg2)] text-[var(--text)] pt-14 pb-8  relative overflow-hidden"
+  data-aos="fade-up">
 
   <!-- Background decorative elements -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
@@ -118,11 +119,11 @@ $contactInfo = [
   <div class="relative px-8 md:px-14 lg:px-28   mx-auto   ">
 
     <!-- Top Section with unique three-column layout -->
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-8 mb-14">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-8 mb-14">
 
 
       <!-- Brand Column with enhanced design -->
-      <div class="relative">
+      <div class="relative" data-aos="fade-right">
         <!-- Floating leaf decoration -->
         <div class="absolute -top-6 -left-6 text-[var(--accent)] opacity-20 leaf-float">
           <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
@@ -133,13 +134,13 @@ $contactInfo = [
 
         <div class="relative z-10">
           <div class="mb-8 transform transition-transform duration-500 hover:scale-[1.02]  ">
-          <img src="/images/logo-title.png" alt="Chyavana Ayur Retreat" class="w-90 mb-6 drop-shadow-lg filter brightness-110 contrast-110
+            <img src="/images/logo-title.png" alt="Chyavana Ayur Retreat" class="w-90 mb-6 drop-shadow-lg filter brightness-110 contrast-110
                    mx-auto lg:mx-0
                    block" />
 
           </div>
 
-         
+
           <!-- Animated badges -->
           <div class="flex   gap-3">
             <span
@@ -164,55 +165,55 @@ $contactInfo = [
       </div>
 
       <!-- Contact Column with card design -->
-      <div class="lg:col-span-2">
+      <div class="lg:col-span-2" data-aos="fade-left">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- Contact Info Section -->
-            <div class="space-y-8">  
-              <div class="flex-1 items-center justify-between gap-6 mb-3">
-              
-                <!-- Social Media -->
-                <div class="text-center lg:text-left">
-                  <h3 class="text-2xl font-bold text-[var(--text)] mb-4 relative inline-block">
-                  Stay Connected
-                    <span
-                      class="absolute -bottom-2 left-0 w-12 h-1 bg-gradient-to-r from-[var(--accent)] to-transparent rounded-full"></span>
-                  </h3>
-                   
-                 
-                 <p class="text-[var(--muted)] max-w-md">Follow us for wellness tips & clinic updates</p>
-                </div>
-               
-                <div class="flex gap-4">
-                  @foreach($socialLinks as $s)
-                    <a href="{{ $s['href'] }}" target="_blank" aria-label="{{ $s['label'] }}"
-                      class="social-hover w-14 h-14 flex items-center justify-center bg-white border border-[var(--border)] rounded-xl text-[var(--text)] shadow-sm hover:shadow-lg">
-                      <div class="relative">
-                        @if($s['icon'] === 'facebook')
-                          <i class="fab fa-facebook-f text-lg"></i>
-                        @else
-                          <i class="fab fa-instagram text-lg"></i>
-                        @endif
-                        <!-- Hover effect circle -->
-                        <span
-                          class="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-[var(--accent)]/30 transition-all duration-300"></span>
-                      </div>
-                    </a>
-                  @endforeach
-              
-                  <!-- Call to Action Button -->
-                  <a href="tel:+919497076557"
-                    class="group flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-dark)] text-white rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-                    <i class="fa-solid fa-phone"></i>
-                    <span class="font-bold">Call Now</span>
-                  </a>
-                </div>
-                 <p
-            class="text-[var(--muted)] leading-relaxed my-8 text-lg font-light italic border-l-4 border-[var(--accent)] pl-4 py-2 bg-white/50 rounded-r-lg">
-            "Experience authentic Ayurveda rooted in ancient wisdom and enhanced with modern holistic care -
-            restoring balance, vitality and natural wellness."
-          </p>
+          <div class="space-y-8">
+            <div class="flex-1 items-center justify-between gap-6 mb-3">
 
-              </div> 
+              <!-- Social Media -->
+              <div class="text-center lg:text-left">
+                <h3 class="text-2xl font-bold text-[var(--text)] mb-4 relative inline-block">
+                  Stay Connected
+                  <span
+                    class="absolute -bottom-2 left-0 w-12 h-1 bg-gradient-to-r from-[var(--accent)] to-transparent rounded-full"></span>
+                </h3>
+
+
+                <p class="text-[var(--muted)] max-w-md">Follow us for wellness tips & clinic updates</p>
+              </div>
+
+              <div class="flex gap-4">
+                @foreach($socialLinks as $s)
+                  <a href="{{ $s['href'] }}" target="_blank" aria-label="{{ $s['label'] }}"
+                    class="social-hover w-14 h-14 flex items-center justify-center bg-white border border-[var(--border)] rounded-xl text-[var(--text)] shadow-sm hover:shadow-lg">
+                    <div class="relative">
+                      @if($s['icon'] === 'facebook')
+                        <i class="fab fa-facebook-f text-lg"></i>
+                      @else
+                        <i class="fab fa-instagram text-lg"></i>
+                      @endif
+                      <!-- Hover effect circle -->
+                      <span
+                        class="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-[var(--accent)]/30 transition-all duration-300"></span>
+                    </div>
+                  </a>
+                @endforeach
+
+                <!-- Call to Action Button -->
+                <a href="tel:+919497076557"
+                  class="group flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-dark)] text-white rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                  <i class="fa-solid fa-phone"></i>
+                  <span class="font-bold">Call Now</span>
+                </a>
+              </div>
+              <p
+                class="text-[var(--muted)] leading-relaxed my-8 text-lg font-light italic border-l-4 border-[var(--accent)] pl-4 py-2 bg-white/50 rounded-r-lg">
+                "Experience authentic Ayurveda rooted in ancient wisdom and enhanced with modern holistic care -
+                restoring balance, vitality and natural wellness."
+              </p>
+
+            </div>
           </div>
           <div>
             <h3 class="text-2xl font-bold text-[var(--text)] mb-4 relative inline-block">
@@ -247,63 +248,63 @@ $contactInfo = [
               @endforeach
             </div>
           </div>
- 
-         
+
+
         </div>
       </div>
     </div>
- 
 
-    
 
-      <!-- Copyright & Links with unique design -->
-      <div class="pt-4 border-t border-[var(--border)]">
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
-          <!-- Copyright -->
-          <div class="text-center lg:text-left">
-            <div class="text-[var(--muted)] text-sm mb-2 flex items-center justify-center lg:justify-start gap-2">
-              <i class="fa-regular fa-copyright"></i>
-              <span>{{ date('Y') }} Chyavana Ayur Retreat — All rights reserved</span>
-            </div>
-            <div class="text-xs text-[var(--muted)] italic">
-              Ancient Wisdom • Modern Care • Natural Healing
-            </div>
+
+
+    <!-- Copyright & Links with unique design -->
+    <div class="pt-4 border-t border-[var(--border)]">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+        <!-- Copyright -->
+        <div class="text-center lg:text-left">
+          <div class="text-[var(--muted)] text-sm mb-2 flex items-center justify-center lg:justify-start gap-2">
+            <i class="fa-regular fa-copyright"></i>
+            <span>{{ date('Y') }} Chyavana Ayur Retreat — All rights reserved</span>
+          </div>
+          <div class="text-xs text-[var(--muted)] italic">
+            Ancient Wisdom • Modern Care • Natural Healing
+          </div>
+        </div>
+
+        <!-- Policy Links -->
+        <div class="flex items-center gap-6">
+          <div class="flex gap-6 text-sm">
+            <a href="#"
+              class="text-[var(--muted)] hover:text-[var(--accent)] transition-colors duration-300 relative group">
+              Privacy Policy
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent)] group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="#"
+              class="text-[var(--muted)] hover:text-[var(--accent)] transition-colors duration-300 relative group">
+              Terms of Service
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent)] group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="#"
+              class="text-[var(--muted)] hover:text-[var(--accent)] transition-colors duration-300 relative group">
+              Cookie Policy
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent)] group-hover:w-full transition-all duration-300"></span>
+            </a>
           </div>
 
-          <!-- Policy Links -->
-          <div class="flex items-center gap-6">
-            <div class="flex gap-6 text-sm">
-              <a href="#"
-                class="text-[var(--muted)] hover:text-[var(--accent)] transition-colors duration-300 relative group">
-                Privacy Policy
-                <span
-                  class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent)] group-hover:w-full transition-all duration-300"></span>
-              </a>
-              <a href="#"
-                class="text-[var(--muted)] hover:text-[var(--accent)] transition-colors duration-300 relative group">
-                Terms of Service
-                <span
-                  class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent)] group-hover:w-full transition-all duration-300"></span>
-              </a>
-              <a href="#"
-                class="text-[var(--muted)] hover:text-[var(--accent)] transition-colors duration-300 relative group">
-                Cookie Policy
-                <span
-                  class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent)] group-hover:w-full transition-all duration-300"></span>
-              </a>
-            </div>
-
-            <!-- Ayurvedic Symbol -->
-            <div class="hidden lg:block text-[var(--accent)] opacity-50">
-              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z" />
-              </svg>
-            </div>
+          <!-- Ayurvedic Symbol -->
+          <div class="hidden lg:block text-[var(--accent)] opacity-50">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z" />
+            </svg>
           </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 
   <!-- Floating back to top button -->

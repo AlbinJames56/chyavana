@@ -19,11 +19,13 @@
 
            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
     @foreach ($painPrograms as $program)
-        <x-cards.pain-program-card
-            :title="$program->title"
-            :description="Str::limit(strip_tags($program->description), 120)"
-            :duration="$program->duration ?? '—'"
-        />
+        <div data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
+            <x-cards.pain-program-card
+                :title="$program->title"
+                :description="Str::limit(strip_tags($program->description), 120)"
+                :duration="$program->duration ?? '—'"
+            />
+        </div>
     @endforeach
 </div>
 

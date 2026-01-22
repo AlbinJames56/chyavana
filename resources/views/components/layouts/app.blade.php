@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
     @php
-        $siteName = config('app.name', 'Jivanam Wellness');
+        $siteName = config('app.name', 'Chyavana');
         $pageTitle = $title ?? $siteName;
         $metaTitle = $meta_title ?? $pageTitle;
-        $metaDescription = $meta_description ?? 'Experience holistic healing through time-tested Ayurvedic therapies. Restore balance and vitality with our certified practitioners.';
-        $metaKeywords = $meta_keywords ?? 'Ayurveda, Ayurvedic therapies, pain management, holistic wellness';
-        $metaImage = $meta_image ?? asset('images/logo.png');
+        $metaDescription = $meta_description ?? 'Experience holistic healing at Chyavana Ayur Retreat. Restore balance and vitality with our time-tested Ayurvedic therapies.';
+        $metaKeywords = $meta_keywords ?? 'Chyavana, Ayurveda, Kerala Ayurveda, holistic wellness, pain management, Ayurvedic hospital';
+        $metaImage = $meta_image ?? asset('images/logo-title.png');
         $canonical = $canonical ?? url()->current();
         $twitterSite = config('services.twitter.username') ?? '@your_twitter';
 
@@ -21,11 +21,11 @@
             '@type' => 'MedicalBusiness',
             'name' => $siteName,
             'url' => url('/'),
-            'logo' => asset('images/logo.png'),
+            'logo' => asset('images/logo-title.png'),
             'description' => $metaDescription,
             'address' => [
                 '@type' => 'PostalAddress',
-                'addressLocality' => $address_city ?? ' Coimbatore  , Tamil Nadu',
+                'addressLocality' => $address_city ?? 'Coimbatore, Tamil Nadu',
                 'addressCountry' => $address_country ?? 'IN',
             ],
             'telephone' => $business_phone ?? '+918220503388',
@@ -60,9 +60,10 @@
     <link rel="canonical" href="{{ $canonical }}">
 
     {{-- Favicons --}}
-    <link rel="icon" type="image/png" href="{{ asset('images/icon.png') }}">
-    <link rel="shortcut icon" href="{{ asset('images/icon.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/logo.png') }}">
+    {{-- Favicons --}}
+    <link rel="icon" type="image/png" href="{{ asset('images/logo-title.png') }}">
+    <link rel="shortcut icon" href="{{ asset('images/logo-title.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo-title.png') }}">
     <meta name="theme-color" content="{{ $theme_color ?? '#0ea5a3' }}">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">

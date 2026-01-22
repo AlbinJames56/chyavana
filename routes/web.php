@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OurHealersController;
 use App\Http\Controllers\OurStoryController;
@@ -24,6 +25,8 @@ Route::get('/OurHealers/{slug}', [OurHealersController::class, 'show'])->name('h
 
 Route::get('/our-story', [OurStoryController::class, 'index'])->name('our-story');
 
+Route::get('/gallery', [ GalleryController::class, 'index'])->name('gallery');
+
 Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
 
 Route::get('/blogs/{slug}', [BlogController::class, 'show'])->name('blogs.show');
@@ -34,3 +37,7 @@ Route::get('/treatments/{slug}', [TreatmentController::class, 'show'])->name('tr
 
 Route::post('/appointments', [AppointmentController::class, 'store'])
     ->name('appointments.store');
+
+Route::fallback(function () {
+    return redirect()->route('home');
+});

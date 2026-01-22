@@ -14,11 +14,11 @@
 <section class="py-10 md:py-20 bg-[var(--neutral-light)]">
   <div class="container mx-auto px-4 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <div class="relative">
+      <div class="relative" data-aos="fade-right">
         <img src="{{ $image }}" alt="{{ $headline }}" class="w-full h-[500px] object-cover rounded-2xl shadow-xl" loading="lazy">
       </div>
 
-      <div>
+      <div data-aos="fade-left">
         <h2 class="text-4xl lg:text-5xl text-[var(--neutral-dark)] mb-6 " style="font-family:var(--font-body);font-weight:700">
           {{ $headline }}
         </h2>

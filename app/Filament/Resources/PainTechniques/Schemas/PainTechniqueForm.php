@@ -18,7 +18,7 @@ class PainTechniqueForm
             ->components([
                 TextInput::make('title')
                     ->required()
-                    ->reactive()
+                    ->live(onBlur: true)
                     ->afterStateUpdated(fn($state, callable $set) => $set('slug', Str::slug($state))),
 
                 TextInput::make('slug')

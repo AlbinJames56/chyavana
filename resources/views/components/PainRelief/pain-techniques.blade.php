@@ -1,11 +1,12 @@
 <section id="pain-techniques" class="py-10 md:py-16 container mx-auto px-8 lg:px-28">
-    <div class="container mx-auto ">
+    <div class="container mx-auto " data-aos="fade-up">
         <h2 class="text-3xl font-bold mb-6">Pain Management Techniques</h2>
         <p class="prose mb-8">Our proven techniques to manage and reduce pain — personalized to your body and dosha.</p>
 
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             @forelse($techniques as $tech)
-                <article class="bg-white rounded-lg shadow p-6 flex flex-col">
+                <article class="bg-white rounded-lg shadow p-6 flex flex-col" data-aos="fade-up"
+                    data-aos-delay="{{ $loop->iteration * 100 }}">
 
                     {{-- Image --}}
                     @if($tech->image)

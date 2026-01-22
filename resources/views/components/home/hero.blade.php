@@ -14,27 +14,29 @@
                        bg-[var(--primary-green)]/10
                        text-[var(--primary-green)]
                        border border-[var(--primary-green)]/20
-                       mb-6 text-sm font-medium backdrop-blur-sm">
+                       mb-6 text-sm font-medium backdrop-blur-sm" data-aos="fade-down"
+                style="font-family: var(--font-body)">
                 Wellness Through Ayurveda
             </span>
 
             {{-- Heading --}}
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold
                        text-[var(--neutral-dark)]
-                       leading-tight mb-6">
+                       leading-tight mb-6" data-aos="fade-up" data-aos-delay="100">
                 Experience <span class="text-[var(--primary-green)]">Authentic</span><br>
                 Ayurvedic Healing
             </h1>
 
             {{-- Sub text --}}
-            <p class="text-lg lg:text-xl text-[var(--muted-foreground)] mb-10 max-w-xl">
+            <p class="text-lg lg:text-xl text-[var(--muted-foreground)] mb-10 max-w-xl" data-aos="fade-up"
+                data-aos-delay="200" style="font-family: var(--font-body)">
                 Traditional wisdom meets modern care.
                 Restore balance, vitality, and long-term wellness through
                 time-tested natural therapies.
             </p>
 
             {{-- CTAs --}}
-            <div class="flex flex-col sm:flex-row gap-4">
+            <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="300">
                 {{-- Book Consultation --}}
                 <button type="button" onclick="window.dispatchEvent(new CustomEvent('open-booking'))" class="inline-flex items-center justify-center gap-2
                            bg-[var(--primary-green)]
@@ -42,7 +44,7 @@
                            text-white text-base lg:text-lg
                            px-7 py-3.5 rounded-lg
                            shadow-lg shadow-emerald-900/20
-                           transition-all duration-300">
+                           transition-all duration-300" style="font-family: var(--font-headline)">
                     Book Consultation
                     <i class="fa-solid fa-arrow-right-long text-sm"></i>
                 </button>
@@ -55,7 +57,7 @@
                           hover:text-white
                           text-base lg:text-lg
                           px-7 py-3.5 rounded-lg
-                          transition-all duration-300">
+                          transition-all duration-300" style="font-family: var(--font-headline)">
                     Explore Treatments
                 </a>
             </div>

@@ -1,6 +1,6 @@
 <section id="treatments" class="py-8 md:py-20 bg-[var(--neutral-light)]">
     <div class="container px-8 md:px-14 lg:px-28   mx-auto ">
-        <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
             <h2 class="text-4xl lg:text-5xl text-[var(--neutral-dark)] mb-4"
                 style="font-family: var(--font-body); font-weight: 700;">
                 Our Treatment Programs
@@ -14,15 +14,17 @@
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             @foreach ($treatments as $treatment)
-                <x-cards.treatment-card :title="$treatment->title"
-                    :description="Str::limit(strip_tags($treatment->description), 110)" :image="$treatment->image_url"
-                    :category="$treatment->category ?? 'therapy'" :duration="$treatment->duration ?? null"
-                    :effectiveness="$treatment->effectiveness ?? null" :includes="$treatment->includes ?? []"
-                    :url="route('treatment.show', $treatment->slug)">
-                    <x-slot:icon>
-                        <i class="fa-solid fa-leaf"></i>
-                    </x-slot:icon>
-                </x-cards.treatment-card>
+                <div data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
+                    <x-cards.treatment-card :title="$treatment->title"
+                        :description="Str::limit(strip_tags($treatment->description), 110)" :image="$treatment->image_url"
+                        :category="$treatment->category ?? 'therapy'" :duration="$treatment->duration ?? null"
+                        :effectiveness="$treatment->effectiveness ?? null" :includes="$treatment->includes ?? []"
+                        :url="route('treatment.show', $treatment->slug)">
+                        <x-slot:icon>
+                            <i class="fa-solid fa-leaf"></i>
+                        </x-slot:icon>
+                    </x-cards.treatment-card>
+                </div>
             @endforeach
         </div>
 

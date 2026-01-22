@@ -6,6 +6,7 @@
         ['label' => 'Pain Relief', 'href' => '/pain-relief'],
         ['label' => 'Our Healers', 'href' => '/OurHealers'],
         ['label' => 'Our Story', 'href' => '/our-story'],
+        ['label' => 'Gallery', 'href' => '/gallery'],
         ['label' => 'Blogs', 'href' => '/blogs'],
         ['label' => 'Contact', 'href' => '/contact'],
     ];
@@ -26,9 +27,8 @@
         });
     }" :class="isScrolled 
         ? '  backdrop-blur-lg shadow-lg py-3  border-[var(--border)]' 
-        : '  backdrop-blur-sm py-5'"
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out">
-    <div class="container mx-auto px-4 lg:px-8">
+        : '  backdrop-blur-sm py-5'" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out">
+    <div class=" mx-auto px-4 lg:px-8">
         <div class="flex items-center justify-between gap-6">
 
             {{-- Logo with enhanced hover effect --}}
@@ -57,12 +57,12 @@
 
                 {{-- Desktop Navigation with enhanced green theme --}}
                 <nav
-                    class="hidden lg:flex items-center gap-1 bg-white/80 backdrop-blur-sm rounded-full px-3 py-1.5 border border-[var(--border)] shadow-sm">
+                    class="hidden xl:flex items-center gap-1 bg-white/80 backdrop-blur-sm rounded-full px-3 py-1.5 border border-[var(--border)] shadow-sm">
                     @foreach ($navItems as $item)
                         <a href="{{ $item['href'] }}"
                             :class="activeNav === '{{ $item['href'] }}' 
-                                        ? 'text-[var(--primary-green)] bg-emerald-50/80 border border-emerald-100 shadow-sm' 
-                                        : 'text-[var(--neutral-dark)] hover:text-[var(--primary-green)] hover:bg-emerald-50/50 border border-transparent'"
+                                            ? 'text-[var(--primary-green)] bg-emerald-50/80 border border-emerald-100 shadow-sm' 
+                                            : 'text-[var(--neutral-dark)] hover:text-[var(--primary-green)] hover:bg-emerald-50/50 border border-transparent'"
                             class="group relative px-3 py-2.5 text-sm font-medium tracking-wide uppercase rounded-full transition-all duration-300"
                             style="font-family: var(--font-headline); letter-spacing: 0.5px;">
                             <span class="relative z-10">{{ $item['label'] }}</span>
@@ -77,7 +77,7 @@
                 </nav>
 
                 {{-- CTA Buttons (Desktop) with green theme --}}
-                <div class="hidden lg:flex items-center gap-3">
+                <div class="hidden xl:flex items-center gap-3">
                     <a href="tel:+91-0000000000"
                         class="group relative inline-flex items-center px-5 py-2.5 text-sm font-medium rounded-full text-[var(--primary-green)] hover:text-white border border-emerald-200 hover:border-[var(--primary-green)] bg-white hover:bg-gradient-to-r hover:from-[var(--primary-green)] hover:to-emerald-600 transition-all duration-300 active:scale-95 shadow-sm"
                         style="font-family: var(--font-headline)">
@@ -122,7 +122,7 @@
                 </div>
             </div>
             {{-- MOBILE: Book button + Hamburger --}}
-            <div class="flex items-center gap-3 lg:hidden">
+            <div class="flex items-center gap-3 xl:hidden">
                 {{-- Small Book button on mobile with enhanced hover --}}
                 <button type="button" onclick="window.dispatchEvent(new CustomEvent('open-booking'))"
                     class="group relative inline-flex items-center px-4 py-2.5 text-xs font-medium rounded-full bg-gradient-to-r from-[var(--primary-green)] to-emerald-600 text-white shadow-md active:scale-95 transition-all duration-200"
@@ -172,14 +172,14 @@
         <div id="mobile-menu" x-show="isMobileMenuOpen" x-transition:enter="transition ease-out duration-300"
             x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
             x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0"
-            x-transition:leave-end="opacity-0 -translate-y-4" class="lg:hidden overflow-hidden" style="display: none;">
+            x-transition:leave-end="opacity-0 -translate-y-4" class="xl:hidden overflow-hidden" style="display: none;">
             <div class="py-5 mt-3 bg-white/95 backdrop-blur-xl rounded-2xl border border-[var(--border)] shadow-xl">
                 <nav class="flex flex-col gap-1 px-3">
                     @foreach ($navItems as $item)
                         <a href="{{ $item['href'] }}"
                             :class="activeNav === '{{ $item['href'] }}' 
-                                            ? 'text-[var(--primary-green)] bg-emerald-50 border-emerald-100' 
-                                            : 'text-[var(--neutral-dark)] hover:text-[var(--primary-green)] hover:bg-emerald-50/50 border-transparent'"
+                                                ? 'text-[var(--primary-green)] bg-emerald-50 border-emerald-100' 
+                                                : 'text-[var(--neutral-dark)] hover:text-[var(--primary-green)] hover:bg-emerald-50/50 border-transparent'"
                             class="group flex items-center justify-between px-4 py-3.5 rounded-xl border transition-all duration-200 active:scale-[0.98]"
                             style="font-family: var(--font-headline)" @click="isMobileMenuOpen = false">
                             <span class="font-medium tracking-wide uppercase text-sm">{{ $item['label'] }}</span>
